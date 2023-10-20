@@ -1,0 +1,16 @@
+C:\Users\milly\Source\Repos\ase-project\GraphicProgrammingLanguage\bin\Debug\net6.0-windows\GraphicProgrammingLanguage.exe
+C:\Users\milly\Source\Repos\ase-project\GraphicProgrammingLanguage\bin\Debug\net6.0-windows\GraphicProgrammingLanguage.deps.json
+C:\Users\milly\Source\Repos\ase-project\GraphicProgrammingLanguage\bin\Debug\net6.0-windows\GraphicProgrammingLanguage.runtimeconfig.json
+C:\Users\milly\Source\Repos\ase-project\GraphicProgrammingLanguage\bin\Debug\net6.0-windows\GraphicProgrammingLanguage.dll
+C:\Users\milly\Source\Repos\ase-project\GraphicProgrammingLanguage\bin\Debug\net6.0-windows\GraphicProgrammingLanguage.pdb
+C:\Users\milly\Source\Repos\ase-project\GraphicProgrammingLanguage\obj\Debug\net6.0-windows\GraphicProgrammingLanguage.Canvas.resources
+C:\Users\milly\Source\Repos\ase-project\GraphicProgrammingLanguage\obj\Debug\net6.0-windows\GraphicProgrammingLanguage.csproj.GenerateResource.cache
+C:\Users\milly\Source\Repos\ase-project\GraphicProgrammingLanguage\obj\Debug\net6.0-windows\GraphicProgrammingLanguage.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\milly\Source\Repos\ase-project\GraphicProgrammingLanguage\obj\Debug\net6.0-windows\GraphicProgrammingLanguage.AssemblyInfoInputs.cache
+C:\Users\milly\Source\Repos\ase-project\GraphicProgrammingLanguage\obj\Debug\net6.0-windows\GraphicProgrammingLanguage.AssemblyInfo.cs
+C:\Users\milly\Source\Repos\ase-project\GraphicProgrammingLanguage\obj\Debug\net6.0-windows\GraphicProgrammingLanguage.csproj.CoreCompileInputs.cache
+C:\Users\milly\Source\Repos\ase-project\GraphicProgrammingLanguage\obj\Debug\net6.0-windows\GraphicProgrammingLanguage.dll
+C:\Users\milly\Source\Repos\ase-project\GraphicProgrammingLanguage\obj\Debug\net6.0-windows\refint\GraphicProgrammingLanguage.dll
+C:\Users\milly\Source\Repos\ase-project\GraphicProgrammingLanguage\obj\Debug\net6.0-windows\GraphicProgrammingLanguage.pdb
+C:\Users\milly\Source\Repos\ase-project\GraphicProgrammingLanguage\obj\Debug\net6.0-windows\GraphicProgrammingLanguage.genruntimeconfig.cache
+C:\Users\milly\Source\Repos\ase-project\GraphicProgrammingLanguage\obj\Debug\net6.0-windows\ref\GraphicProgrammingLanguage.dll

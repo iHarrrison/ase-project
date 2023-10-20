@@ -9,7 +9,7 @@ namespace GraphicProgrammingLanguage
         public string Command { get; private set; }
         public string[] Args { get; private set; }
 
-        public CommandParser(string enteredCommand)
+        public CommandParser( PictureBox pictureBox, string enteredCommand)
         {
             ParseCommand(enteredCommand);
         }
