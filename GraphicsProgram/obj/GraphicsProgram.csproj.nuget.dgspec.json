@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\milly\\source\\repos\\ase-project\\GraphicsProgram\\GraphicsProgram.csproj": {}
+    "C:\\Users\\milly\\Source\\Repos\\ase-project\\GraphicsProgram\\GraphicsProgram.csproj": {}
   },
   "projects": {
-    "C:\\Users\\milly\\source\\repos\\ase-project\\GraphicsProgram\\GraphicsProgram.csproj": {
+    "C:\\Users\\milly\\Source\\Repos\\ase-project\\GraphicsProgram\\GraphicsProgram.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\milly\\source\\repos\\ase-project\\GraphicsProgram\\GraphicsProgram.csproj",
+        "projectUniqueName": "C:\\Users\\milly\\Source\\Repos\\ase-project\\GraphicsProgram\\GraphicsProgram.csproj",
         "projectName": "GraphicsProgram",
-        "projectPath": "C:\\Users\\milly\\source\\repos\\ase-project\\GraphicsProgram\\GraphicsProgram.csproj",
+        "projectPath": "C:\\Users\\milly\\Source\\Repos\\ase-project\\GraphicsProgram\\GraphicsProgram.csproj",
         "packagesPath": "C:\\Users\\milly\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\milly\\Source\\Repos\\ase-project\\GraphicsProgram\\obj\\",
         "projectStyle": "PackageReference",

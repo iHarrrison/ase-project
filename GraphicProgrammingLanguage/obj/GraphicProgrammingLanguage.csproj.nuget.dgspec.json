@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\milly\\source\\repos\\ase-project\\GraphicProgrammingLanguage\\GraphicProgrammingLanguage.csproj": {}
+    "C:\\Users\\milly\\Source\\Repos\\ase-project\\GraphicProgrammingLanguage\\GraphicProgrammingLanguage.csproj": {}
   },
   "projects": {
-    "C:\\Users\\milly\\source\\repos\\ase-project\\GraphicProgrammingLanguage\\GraphicProgrammingLanguage.csproj": {
+    "C:\\Users\\milly\\Source\\Repos\\ase-project\\GraphicProgrammingLanguage\\GraphicProgrammingLanguage.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\milly\\source\\repos\\ase-project\\GraphicProgrammingLanguage\\GraphicProgrammingLanguage.csproj",
+        "projectUniqueName": "C:\\Users\\milly\\Source\\Repos\\ase-project\\GraphicProgrammingLanguage\\GraphicProgrammingLanguage.csproj",
         "projectName": "GraphicProgrammingLanguage",
-        "projectPath": "C:\\Users\\milly\\source\\repos\\ase-project\\GraphicProgrammingLanguage\\GraphicProgrammingLanguage.csproj",
+        "projectPath": "C:\\Users\\milly\\Source\\Repos\\ase-project\\GraphicProgrammingLanguage\\GraphicProgrammingLanguage.csproj",
         "packagesPath": "C:\\Users\\milly\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\milly\\source\\repos\\ase-project\\GraphicProgrammingLanguage\\obj\\",
         "projectStyle": "PackageReference",
