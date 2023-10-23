@@ -22,8 +22,13 @@ namespace GraphicProgrammingLanguage
             switch (parser.Command.ToLower())
             {
                 case "rectangle":
-                    RectangleCommand.Execute(pictureBox, parser.Args);
+                    Rectangle.Execute(pictureBox, parser.Args);
                     break;
+
+                case "circle":
+                    Circle.Execute(pictureBox, parser.Args);
+                    break;
+
                     // TODO add more commands.
             }
         }

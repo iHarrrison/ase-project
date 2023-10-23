@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace GraphicProgrammingLanguage
 {
-    public class RectangleCommand
+    public class Rectangle
     {
         public static void Execute(PictureBox pictureBox, string[] args)
         {
