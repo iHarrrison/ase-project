@@ -6,7 +6,7 @@ namespace GraphicProgrammingLanguage
 {
     public class Rectangle
     {
-        public static void Execute(PictureBox pictureBox, string[] args)
+        public static void Execute(PictureBox pictureBox, string[] args, DrawingPosition position)
         {
             if (args.Length >= 2)
 
@@ -14,8 +14,8 @@ namespace GraphicProgrammingLanguage
             {
                 if (int.TryParse(args[0], out int width) && int.TryParse(args[1], out int height))
                 {
-                    int x = 0;
-                    int y = 0;
+                    int x = position.x;
+                    int y = position.y;
 
                     if (pictureBox.Image == null)
                     {

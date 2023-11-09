@@ -8,7 +8,7 @@ namespace GraphicProgrammingLanguage
 {
     public class Circle
     {
-        public static void Execute(PictureBox pictureBox, string[] args)
+        public static void Execute(PictureBox pictureBox, string[] args, DrawingPosition position)
         {
             if (args.Length >= 3)
             {

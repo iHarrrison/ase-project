@@ -5,10 +5,13 @@ namespace GraphicProgrammingLanguage
 {
     public partial class Canvas : Form
     {
+        private DrawingPosition drawingPosition;
         public Canvas()
         {
             InitializeComponent();
             runButton.Click += runButton_Click;
+
+            drawingPosition = new DrawingPosition(0, 0);
         }
 
         private void runButton_Click(object sender, EventArgs e)
@@ -22,11 +25,11 @@ namespace GraphicProgrammingLanguage
             switch (parser.Command.ToLower())
             {
                 case "rectangle":
-                    Rectangle.Execute(pictureBox, parser.Args);
+                    Rectangle.Execute(pictureBox, parser.Args, drawingPosition);
                     break;
 
                 case "circle":
-                    Circle.Execute(pictureBox, parser.Args);
+                    Circle.Execute(pictureBox, parser.Args, drawingPosition);
                     break;
 
                     // TODO add more commands.
