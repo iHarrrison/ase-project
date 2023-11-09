@@ -37,7 +37,7 @@ namespace GraphicProgrammingLanguage
                 break;
 
                 case "moveto":
-                    ;
+                    Moveto.Execute(pictureBox, parser.Args, drawingPosition);
                     break;
 
                 case "drawto":
