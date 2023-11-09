@@ -8,7 +8,7 @@ public static class Circle
     {
         if (args.Length < 1)
         {
-            MessageBox.Show("The circle command requires at least one argument (radius).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show("The circle command expects one argument (radius).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return;
         }
 

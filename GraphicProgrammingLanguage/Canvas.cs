@@ -32,10 +32,9 @@ namespace GraphicProgrammingLanguage
                     Circle.Execute(pictureBox, parser.Args, drawingPosition);
                     break;
 
-                //This will be an equilateral triangle, so only one argument is needed.
-                //case "triangle":
-                //Triangle.Execute(pictureBox, parser.Args, drawingPosition);
-                //break;
+                case "triangle":
+                Triangle.Execute(pictureBox, parser.Args, drawingPosition);
+                break;
 
                 case "moveto":
                     ;
@@ -64,6 +63,7 @@ namespace GraphicProgrammingLanguage
                 case "reset":
                     ;
                     break;
+
                 // default if none of the commands are called by the user - error handles inside the switch statement instead of each class!
                 default:
                     MessageBox.Show($"Command '{parser.Command}' not recognized.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

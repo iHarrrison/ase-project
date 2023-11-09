@@ -8,13 +8,13 @@ public static class Rectangle
     {
         if (args.Length < 2)
         {
-            MessageBox.Show("Rectangle command requires at least two arguments (width and height).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show("The rectangle command expects two arguments (width and height).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return;
         }
 
         if (int.TryParse(args[0], out int width) && int.TryParse(args[1], out int height))
         {
-            // check to make sure the pictureBox.Image is null, if it is instantiate.
+            // check to see if the pictureBox.Image is null, if it is, instantiate.
             if (pictureBox.Image == null)
             {
                 pictureBox.Image = new Bitmap(pictureBox.Width, pictureBox.Height);
