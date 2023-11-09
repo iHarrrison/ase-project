@@ -13,12 +13,11 @@ public static class Triangle
         }
 
         if (int.TryParse(args[0], out int sideLength))
-
-        {   // Check to make see if the pictureBox.Image is null; if it is, instantiate
+        {
+            // Check to make see if the pictureBox.Image is null; if it is, instantiate
             if (pictureBox.Image == null)
             {
                 pictureBox.Image = new Bitmap(pictureBox.Width, pictureBox.Height);
-
             }
 
             // Set the pen color using CanvasPen
@@ -26,22 +25,29 @@ public static class Triangle
 
             using (Graphics g = Graphics.FromImage(pictureBox.Image))
             {
+                // Set the fill color if FillOn is true
+                if (drawingPosition.FillOn)
+                {
+                    SolidBrush fillBrush = new SolidBrush(drawingPosition.PenColor);
+
+                    // Calculate the points of the triangle.
+                    // point1 is the top, point2 is bottom-left and point3 is bottom-right
+                    Point fillPoint1 = new Point(drawingPosition.X, drawingPosition.Y - sideLength);
+                    Point fillPoint2 = new Point(drawingPosition.X - sideLength / 2, drawingPosition.Y + sideLength / 2);
+                    Point fillPoint3 = new Point(drawingPosition.X + sideLength / 2, drawingPosition.Y + sideLength / 2);
+
+                    g.FillPolygon(fillBrush, new[] { fillPoint1, fillPoint2, fillPoint3 });
+                }
+
                 Pen pen = new Pen(drawingPosition.PenColor);
-                int halfSide = sideLength / 2;
 
-                // Calculate the points of the triangle, determining the coordinates of each vertex.
+                // Calculate the points of the triangle.
+                // point1 is the top, point2 is bottom-left and point3 is bottom-right
+                Point drawPoint1 = new Point(drawingPosition.X, drawingPosition.Y - sideLength);
+                Point drawPoint2 = new Point(drawingPosition.X - sideLength / 2, drawingPosition.Y + sideLength / 2);
+                Point drawPoint3 = new Point(drawingPosition.X + sideLength / 2, drawingPosition.Y + sideLength / 2);
 
-                // Point 1 is at the top of the triangle
-                Point point1 = new Point(drawingPosition.X, drawingPosition.Y - sideLength);
-                // Point 2 is at the bottom-left of the triangle
-                Point point2 = new Point(drawingPosition.X - halfSide, drawingPosition.Y + halfSide);
-                // Point 3 is at the bottom-right of the triangle
-                Point point3 = new Point(drawingPosition.X + halfSide, drawingPosition.Y + halfSide);
-                
-                // Draw the three lines to connect the points together, making the triangle.
-                g.DrawLine(pen, point1, point2);
-                g.DrawLine(pen, point2, point3);
-                g.DrawLine(pen, point3, point1);
+                g.DrawPolygon(pen, new[] { drawPoint1, drawPoint2, drawPoint3 });
             }
 
             pictureBox.Refresh(); // Refresh the PictureBox to display the changes

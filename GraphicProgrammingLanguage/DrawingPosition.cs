@@ -5,6 +5,8 @@
 
     public Color PenColor { get; set; }
 
+    public bool FillOn { get; set; }
+
     public DrawingPosition(int x, int y)
     {
         X = x;
@@ -13,5 +15,9 @@
 
         // Default pen color to black
         PenColor = Color.Black;
+
+        //Default fill status to off
+        FillOn = false;
+
     }
 }

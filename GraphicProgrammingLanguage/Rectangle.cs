@@ -25,6 +25,12 @@ public static class Rectangle
 
             using (Graphics g = Graphics.FromImage(pictureBox.Image))
             {
+                if (drawingPosition.FillOn)
+                {
+                    SolidBrush fillBrush = new SolidBrush(drawingPosition.PenColor);
+                    g.FillRectangle(fillBrush, drawingPosition.X, drawingPosition.Y, width, height);
+                }
+
                 Pen pen = new Pen(drawingPosition.PenColor);
                 g.DrawRectangle(pen, drawingPosition.X, drawingPosition.Y, width, height);
             }

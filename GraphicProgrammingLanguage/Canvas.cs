@@ -47,19 +47,16 @@ namespace GraphicProgrammingLanguage
                     CanvasPen.Execute(pictureBox, parser.Args, drawingPosition);
                     break;
 
-                // argument is color, outline of shape needs to be same as fill color
-                case "filled":
-                    ;
+                case "fill":
+                    Fill.Execute(drawingPosition, parser.Args);
                     break;
 
-                //clears the canvas but does not reset drawing position
                 case "clear":
                     Clear.Execute(pictureBox, parser.Args, drawingPosition);
                     break;
 
-                //resets the drawingposition
                 case "reset":
-                    ;
+                    Reset.Execute(pictureBox, parser.Args, drawingPosition);
                     break;
 
                 // default if none of the commands are called by the user - error handles inside the switch statement instead of each class!

@@ -28,9 +28,15 @@ public static class Circle
                 // performs the maths necessary to figure out the top-left bounds
                 // of the circle required for drawing it after being given the radius
                 Pen pen = new Pen(drawingPosition.PenColor);
+                Brush fillBrush = (drawingPosition.FillOn) ? new SolidBrush(drawingPosition.PenColor) : null;
                 int diameter = radius * 2;
                 int x = drawingPosition.X - radius;
                 int y = drawingPosition.Y - radius;
+
+                if (drawingPosition.FillOn)
+                {
+                    g.FillEllipse(fillBrush, x, y, diameter, diameter);
+                }
 
                 g.DrawEllipse(pen, x, y, diameter, diameter);
             }
