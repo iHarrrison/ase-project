@@ -54,7 +54,7 @@ namespace GraphicProgrammingLanguage
 
                 //clears the canvas but does not reset drawing position
                 case "clear":
-                    ;
+                    Clear.Execute(pictureBox, parser.Args, drawingPosition);
                     break;
 
                 //resets the drawingposition
