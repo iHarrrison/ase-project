@@ -21,9 +21,12 @@ public static class Triangle
 
             }
 
+            // Set the pen color using CanvasPen
+            CanvasPen.Execute(pictureBox, args, drawingPosition);
+
             using (Graphics g = Graphics.FromImage(pictureBox.Image))
             {
-                Pen pen = new Pen(Color.Black);
+                Pen pen = new Pen(drawingPosition.PenColor);
                 int halfSide = sideLength / 2;
 
                 // Calculate the points of the triangle, determining the coordinates of each vertex.

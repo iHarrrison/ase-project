@@ -44,9 +44,10 @@
             // 
             // commandTextBox
             // 
-            commandTextBox.Location = new Point(47, 402);
+            commandTextBox.Location = new Point(52, 41);
+            commandTextBox.Multiline = true;
             commandTextBox.Name = "commandTextBox";
-            commandTextBox.Size = new Size(564, 31);
+            commandTextBox.Size = new Size(557, 367);
             commandTextBox.TabIndex = 1;
             // 
             // runButton

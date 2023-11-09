@@ -20,7 +20,6 @@ namespace GraphicProgrammingLanguage
             CommandParser parser = new CommandParser(pictureBox, enteredCommand);
 
             // Switch statement to go through all expected commands and call the appropriate classes.
-            // TODO Add error handling so if it is not an expected command, it does not break.
 
             switch (parser.Command.ToLower())
             {
@@ -33,20 +32,19 @@ namespace GraphicProgrammingLanguage
                     break;
 
                 case "triangle":
-                Triangle.Execute(pictureBox, parser.Args, drawingPosition);
-                break;
+                    Triangle.Execute(pictureBox, parser.Args, drawingPosition);
+                    break;
 
                 case "moveto":
                     Moveto.Execute(pictureBox, parser.Args, drawingPosition);
                     break;
 
                 case "drawto":
-                    ;
+                    Drawto.Execute(pictureBox, parser.Args, drawingPosition);
                     break;
 
-                //argument is pen color, just need 2 or 3
                 case "pen":
-                    ;
+                    CanvasPen.Execute(pictureBox, parser.Args, drawingPosition);
                     break;
 
                 // argument is color, outline of shape needs to be same as fill color

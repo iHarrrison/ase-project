@@ -8,7 +8,7 @@ public static class Moveto
     {
         if (args.Length < 2)
         {
-            MessageBox.Show("The moveto command expects 2 arguments (x and y coordinates)", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show("The moveto command expects two arguments (x and y coordinates)", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return;
         }
 
@@ -23,10 +23,13 @@ public static class Moveto
                 pictureBox.Image = new Bitmap(pictureBox.Width, pictureBox.Height);
             }
 
+            // Set the pen color using CanvasPen
+            CanvasPen.Execute(pictureBox, args, drawingPosition);
+
             // Draw a small circle at the new drawing position
             using (Graphics g = Graphics.FromImage(pictureBox.Image))
             {
-                Pen markerPen = new Pen(Color.Red);
+                Pen markerPen = new Pen(drawingPosition.PenColor);
                 int markerSize = 5;
                 g.DrawEllipse(markerPen, x - markerSize / 2, y - markerSize / 2, markerSize, markerSize);
             }

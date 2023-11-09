@@ -20,11 +20,14 @@ public static class Circle
                 pictureBox.Image = new Bitmap(pictureBox.Width, pictureBox.Height);
             }
 
+            // Set the pen color using CanvasPen
+            CanvasPen.Execute(pictureBox, args, drawingPosition);
+
             using (Graphics g = Graphics.FromImage(pictureBox.Image))
             {
                 // performs the maths necessary to figure out the top-left bounds
                 // of the circle required for drawing it after being given the radius
-                Pen pen = new Pen(Color.Black);
+                Pen pen = new Pen(drawingPosition.PenColor);
                 int diameter = radius * 2;
                 int x = drawingPosition.X - radius;
                 int y = drawingPosition.Y - radius;
