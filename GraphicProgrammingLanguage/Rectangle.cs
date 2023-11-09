@@ -2,45 +2,35 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace GraphicProgrammingLanguage
+public static class Rectangle
 {
-    public class Rectangle
+    public static void Execute(PictureBox pictureBox, string[] args, DrawingPosition drawingPosition)
     {
-        public static void Execute(PictureBox pictureBox, string[] args, DrawingPosition position)
+        if (args.Length < 2)
         {
-            if (args.Length >= 2)
+            MessageBox.Show("Rectangle command requires at least two arguments (width and height).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return;
+        }
 
-                // Look for string arguments for x and y values.
+        if (int.TryParse(args[0], out int width) && int.TryParse(args[1], out int height))
+        {
+            // check to make sure the pictureBox.Image is null, if it is instantiate.
+            if (pictureBox.Image == null)
             {
-                if (int.TryParse(args[0], out int width) && int.TryParse(args[1], out int height))
-                {
-                    int x = position.x;
-                    int y = position.y;
-
-                    if (pictureBox.Image == null)
-                    {
-                        // Initialize the PictureBox.Image if it's null, stopping errors.
-                        pictureBox.Image = new Bitmap(pictureBox.Width, pictureBox.Height);
-                    }
-
-                    using (Graphics g = Graphics.FromImage(pictureBox.Image))
-                        // For now, just accepts black pen. This will be changed at a later date.
-                    {
-                        g.DrawRectangle(Pens.Black, x, y, width, height); 
-                    }
-
-                    pictureBox.Invalidate(); // Refreshes the PictureBox to see the changes.
-                }
-                else
-                {
-                    // Handles parsing errors via a windows message box.
-                    // Plan is to make this a separate class and just call a function as opposed to reusing code for
-                    // every shape...
-                    MessageBox.Show("Sorry, it appears you have entered invalid arguments for this command. " +
-                        "Please provide valid values to draw your shape.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                pictureBox.Image = new Bitmap(pictureBox.Width, pictureBox.Height);
             }
+
+            using (Graphics g = Graphics.FromImage(pictureBox.Image))
+            {
+                Pen pen = new Pen(Color.Black);
+                g.DrawRectangle(pen, drawingPosition.X, drawingPosition.Y, width, height);
+            }
+
+            pictureBox.Refresh(); // Refresh the PictureBox to display the changes
+        }
+        else
+        {
+            MessageBox.Show("Invalid width or height values for Rectangle command.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }
-

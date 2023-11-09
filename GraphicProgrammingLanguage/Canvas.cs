@@ -32,7 +32,43 @@ namespace GraphicProgrammingLanguage
                     Circle.Execute(pictureBox, parser.Args, drawingPosition);
                     break;
 
-                    // TODO add more commands.
+                //This will be an equilateral triangle, so only one argument is needed.
+                //case "triangle":
+                //Triangle.Execute(pictureBox, parser.Args, drawingPosition);
+                //break;
+
+                case "moveto":
+                    ;
+                    break;
+
+                case "drawto":
+                    ;
+                    break;
+
+                //argument is pen color, just need 2 or 3
+                case "pen":
+                    ;
+                    break;
+
+                // argument is color, outline of shape needs to be same as fill color
+                case "filled":
+                    ;
+                    break;
+
+                //clears the canvas but does not reset drawing position
+                case "clear":
+                    ;
+                    break;
+
+                //resets the drawingposition
+                case "reset":
+                    ;
+                    break;
+                // default if none of the commands are called by the user - error handles inside the switch statement instead of each class!
+                default:
+                    MessageBox.Show($"Command '{parser.Command}' not recognized.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+
             }
         }
 

@@ -1,47 +1,42 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Drawing;
+using System.Windows.Forms;
 
-namespace GraphicProgrammingLanguage
+public static class Circle
 {
-    public class Circle
+    public static void Execute(PictureBox pictureBox, string[] args, DrawingPosition drawingPosition)
     {
-        public static void Execute(PictureBox pictureBox, string[] args, DrawingPosition position)
+        if (args.Length < 1)
         {
-            if (args.Length >= 3)
+            MessageBox.Show("The circle command requires at least one argument (radius).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return;
+        }
+
+        if (int.TryParse(args[0], out int radius))
+        {
+            // Check to see if the pictureBox.Image is null; if it is, instantiate.
+            if (pictureBox.Image == null)
             {
-
-                // passes in the x and y coordinates and then the radius of the circle. This is temporary, as when I implement the drawing position class it will
-                // not use the centreX and centreY (if I have understood my reading correctly...!)
-                if (int.TryParse(args[0], out int centreX) && int.TryParse(args[1], out int centreY) && int.TryParse(args[2], out int radius))
-                {
-                    if (pictureBox.Image == null)
-                    {
-                        // Initialize the pictureBox.Image if it is null
-                        pictureBox.Image = new Bitmap(pictureBox.Width, pictureBox.Height);
-                    }
-
-                    using (Graphics g = Graphics.FromImage(pictureBox.Image))
-                    {
-                        int x = centreX - radius; // Calculates the top-left corner X coordinate
-                        int y = centreY - radius; // Calculates the top-left corner Y coordinate
-
-                        g.DrawEllipse(Pens.Black, x, y, radius * 2, radius * 2);
-                    }
-
-                    pictureBox.Invalidate(); // Refreshes the pictureBox to show the changes on the canvas.
-
-                }
-
-                else
-                {
-                    MessageBox.Show("Sorry, it appears you have entered invalid arguments for this command. " +
-                        "Please provide valid values to draw your shape.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                pictureBox.Image = new Bitmap(pictureBox.Width, pictureBox.Height);
             }
 
+            using (Graphics g = Graphics.FromImage(pictureBox.Image))
+            {
+                // performs the maths necessary to figure out the top-left bounds
+                // of the circle required for drawing it after being given the radius
+                Pen pen = new Pen(Color.Black);
+                int diameter = radius * 2;
+                int x = drawingPosition.X - radius;
+                int y = drawingPosition.Y - radius;
+
+                g.DrawEllipse(pen, x, y, diameter, diameter);
+            }
+
+            pictureBox.Refresh(); // Refresh the PictureBox to display the changes
+        }
+        else
+        {
+            MessageBox.Show("Invalid radius value for Circle command.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }
