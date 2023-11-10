@@ -1,7 +1,7 @@
-namespace TestGraphicalProgrammingLanguage
+namespace UnitTestGraphicalProgrammingLanguage
 {
     [TestClass]
-    public class UnitTest1
+    public class TriangleTests
     {
         [TestMethod]
         public void TestMethod1()

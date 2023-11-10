@@ -1,0 +1,135 @@
+{
+  "version": 2,
+  "dgSpecHash": "ktvV5OSixDBJYXJwS21W/MEnenj+Bay66dUzESn0BeDl1m4hBvRs59XWzBuQaddLUTyjSGPRcfoWEOhc/00PyA==",
+  "success": false,
+  "projectFilePath": "C:\\Users\\milly\\Source\\Repos\\ase-project\\TestGraphicalProgrammingLanguage\\TestGraphicalProgrammingLanguage.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1803",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "You are running the 'restore' operation with an 'HTTP' source, 'http://packages.nuget.org'. Non-HTTPS access will be removed in a future version. Consider migrating to an 'HTTPS' source."
+    },
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "Failed to retrieve information about 'coverlet.collector' from remote source 'http://packages.nuget.org/FindPackagesById()?id='coverlet.collector'&semVerLevel=2.0.0'.",
+      "libraryId": "coverlet.collector"
+    },
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "Failed to retrieve information about 'MSTest.TestFramework' from remote source 'http://packages.nuget.org/FindPackagesById()?id='MSTest.TestFramework'&semVerLevel=2.0.0'.",
+      "libraryId": "MSTest.TestFramework"
+    },
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "Failed to retrieve information about 'MSTest.TestFramework' from remote source 'http://packages.nuget.org/FindPackagesById()?id='MSTest.TestFramework'&semVerLevel=2.0.0'.",
+      "libraryId": "MSTest.TestFramework"
+    },
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "Failed to retrieve information about 'coverlet.collector' from remote source 'http://packages.nuget.org/FindPackagesById()?id='coverlet.collector'&semVerLevel=2.0.0'.",
+      "libraryId": "coverlet.collector"
+    },
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "Failed to retrieve information about 'MSTest.TestAdapter' from remote source 'http://packages.nuget.org/FindPackagesById()?id='MSTest.TestAdapter'&semVerLevel=2.0.0'.",
+      "libraryId": "MSTest.TestAdapter"
+    },
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "Failed to retrieve information about 'MSTest.TestAdapter' from remote source 'http://packages.nuget.org/FindPackagesById()?id='MSTest.TestAdapter'&semVerLevel=2.0.0'.",
+      "libraryId": "MSTest.TestAdapter"
+    },
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "Failed to retrieve information about 'Microsoft.NET.Test.Sdk' from remote source 'http://packages.nuget.org/FindPackagesById()?id='Microsoft.NET.Test.Sdk'&semVerLevel=2.0.0'.",
+      "libraryId": "Microsoft.NET.Test.Sdk"
+    },
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "Failed to retrieve information about 'Microsoft.NET.Test.Sdk' from remote source 'http://packages.nuget.org/FindPackagesById()?id='Microsoft.NET.Test.Sdk'&semVerLevel=2.0.0'.",
+      "libraryId": "Microsoft.NET.Test.Sdk"
+    },
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "Failed to retrieve information about 'Microsoft.CodeCoverage' from remote source 'http://packages.nuget.org/FindPackagesById()?id='Microsoft.CodeCoverage'&semVerLevel=2.0.0'.",
+      "libraryId": "Microsoft.CodeCoverage"
+    },
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "Failed to retrieve information about 'Microsoft.CodeCoverage' from remote source 'http://packages.nuget.org/FindPackagesById()?id='Microsoft.CodeCoverage'&semVerLevel=2.0.0'.",
+      "libraryId": "Microsoft.CodeCoverage"
+    },
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "Failed to retrieve information about 'Microsoft.TestPlatform.TestHost' from remote source 'http://packages.nuget.org/FindPackagesById()?id='Microsoft.TestPlatform.TestHost'&semVerLevel=2.0.0'.",
+      "libraryId": "Microsoft.TestPlatform.TestHost"
+    },
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "Failed to retrieve information about 'Microsoft.TestPlatform.TestHost' from remote source 'http://packages.nuget.org/FindPackagesById()?id='Microsoft.TestPlatform.TestHost'&semVerLevel=2.0.0'.",
+      "libraryId": "Microsoft.TestPlatform.TestHost"
+    },
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "Failed to retrieve information about 'Newtonsoft.Json' from remote source 'http://packages.nuget.org/FindPackagesById()?id='Newtonsoft.Json'&semVerLevel=2.0.0'.",
+      "libraryId": "Newtonsoft.Json"
+    },
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "Failed to retrieve information about 'Newtonsoft.Json' from remote source 'http://packages.nuget.org/FindPackagesById()?id='Newtonsoft.Json'&semVerLevel=2.0.0'.",
+      "libraryId": "Newtonsoft.Json"
+    },
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "Failed to retrieve information about 'Newtonsoft.Json' from remote source 'http://packages.nuget.org/FindPackagesById()?id='Newtonsoft.Json'&semVerLevel=2.0.0'.",
+      "libraryId": "Newtonsoft.Json"
+    },
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "Failed to retrieve information about 'Newtonsoft.Json' from remote source 'http://packages.nuget.org/FindPackagesById()?id='Newtonsoft.Json'&semVerLevel=2.0.0'.",
+      "libraryId": "Newtonsoft.Json"
+    },
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "Failed to retrieve information about 'Microsoft.TestPlatform.ObjectModel' from remote source 'http://packages.nuget.org/FindPackagesById()?id='Microsoft.TestPlatform.ObjectModel'&semVerLevel=2.0.0'.",
+      "libraryId": "Microsoft.TestPlatform.ObjectModel"
+    },
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "Failed to retrieve information about 'Microsoft.TestPlatform.ObjectModel' from remote source 'http://packages.nuget.org/FindPackagesById()?id='Microsoft.TestPlatform.ObjectModel'&semVerLevel=2.0.0'.",
+      "libraryId": "Microsoft.TestPlatform.ObjectModel"
+    },
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "Failed to retrieve information about 'NuGet.Frameworks' from remote source 'http://packages.nuget.org/FindPackagesById()?id='NuGet.Frameworks'&semVerLevel=2.0.0'.",
+      "libraryId": "NuGet.Frameworks"
+    },
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "Failed to retrieve information about 'NuGet.Frameworks' from remote source 'http://packages.nuget.org/FindPackagesById()?id='NuGet.Frameworks'&semVerLevel=2.0.0'.",
+      "libraryId": "NuGet.Frameworks"
+    }
+  ]
+}

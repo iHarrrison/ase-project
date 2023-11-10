@@ -11,7 +11,7 @@ public static class Reset
     /// Executes the reset command, resetting the drawing position to 0, 0
     /// </summary>
     /// <param name="pictureBox">The canvas in which the drawing occurs</param>
-    /// <param name="args">The array of strings containing the width and height</param>
+    /// <param name="args"></param>
     /// <param name="drawingPosition">The current position for drawing, as well as settings (fill/pen color)</param>
     public static void Execute(PictureBox pictureBox, string[] args, DrawingPosition drawingPosition)
     {
