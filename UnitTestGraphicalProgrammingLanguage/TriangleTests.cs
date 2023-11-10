@@ -4,9 +4,15 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTestGraphicalProgrammingLanguage
 {
+    /// <summary>
+    /// Tests Triangle command
+    /// </summary>
     [TestClass]
     public class TriangleTests
     {
+        /// <summary>
+        /// Tests that when the triangle receives the correct commands, it executes on the canvas as expected
+        /// </summary>
         [TestMethod]
         public void Triangle_Execute_Pass()
         {
@@ -22,6 +28,9 @@ namespace UnitTestGraphicalProgrammingLanguage
             Assert.IsNotNull(pictureBox.Image);
         }
 
+        /// <summary>
+        /// Tests that when the triangle does not receive the correct commands, it does not execute on the canvas
+        /// </summary>
         [TestMethod]
         public void Triangle_Execute_Fail()
         {

@@ -4,9 +4,15 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTestGraphicalProgrammingLanguage
 {
+    /// <summary>
+    /// Tests the reset command
+    /// </summary>
     [TestClass]
     public class ResetTests
     {
+        /// <summary>
+        /// Tests that when the reset command is entered, the drawing position resets back to 0,0, as expected.
+        /// </summary>
         [TestMethod]
         public void Reset_Execute_Pass()
         {
