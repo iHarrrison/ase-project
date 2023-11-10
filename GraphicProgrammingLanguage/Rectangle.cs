@@ -2,8 +2,17 @@
 using System.Drawing;
 using System.Windows.Forms;
 
+/// <summary>
+/// Enables the ability to draw rectangles on the canvas
+/// </summary>
 public static class Rectangle
 {
+    /// <summary>
+    /// Executes the Rectangle command to draw a rectangle onto the canvas with the given parameters
+    /// </summary>
+    /// <param name="pictureBox">The canvas in which the drawing occurs</param>
+    /// <param name="args">The array of strings containing the width and height</param>
+    /// <param name="drawingPosition">The current position for drawing, as well as settings (fill/pen color)</param>
     public static void Execute(PictureBox pictureBox, string[] args, DrawingPosition drawingPosition)
     {
         if (args.Length < 2)
