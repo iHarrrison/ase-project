@@ -14,3 +14,4 @@ C:\Users\milly\Source\Repos\ase-project\GraphicProgrammingLanguage\obj\Debug\net
 C:\Users\milly\Source\Repos\ase-project\GraphicProgrammingLanguage\obj\Debug\net6.0-windows\GraphicProgrammingLanguage.pdb
 C:\Users\milly\Source\Repos\ase-project\GraphicProgrammingLanguage\obj\Debug\net6.0-windows\GraphicProgrammingLanguage.genruntimeconfig.cache
 C:\Users\milly\Source\Repos\ase-project\GraphicProgrammingLanguage\obj\Debug\net6.0-windows\ref\GraphicProgrammingLanguage.dll
+C:\Users\milly\Source\Repos\ase-project\GraphicProgrammingLanguage\bin\Debug\net6.0-windows\GraphicProgrammingLanguage.xml
