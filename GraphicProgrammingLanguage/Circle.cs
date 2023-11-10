@@ -2,8 +2,17 @@
 using System.Drawing;
 using System.Windows.Forms;
 
+/// <summary>
+/// Enables the ability to draw circles on the canvas
+/// </summary>
 public static class Circle
 {
+    /// <summary>
+    /// Executes the circle drawing command
+    /// </summary>
+    /// <param name="pictureBox">The canvas in which the drawing occurs</param>
+    /// <param name="args">The array of strings containing the radius</param>
+    /// <param name="drawingPosition">The current position for drawing, as well as settings (fill/pen color)</param>
     public static void Execute(PictureBox pictureBox, string[] args, DrawingPosition drawingPosition)
     {
         if (args.Length < 1)
