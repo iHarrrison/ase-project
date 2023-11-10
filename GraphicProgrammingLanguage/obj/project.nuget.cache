@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "me5E6Bo2fqkzdkMlgZ5NjqbbnZFWxT95UV4m8jOGNnhhPyuR3KcB8rIcSYBZaaIkabcyeF9gp2NDO+zU/IwD5Q==",
+  "dgSpecHash": "Po1zggkl0Aj1h57rySX5QFpDxtz1ZF5v4HqTg7kUVetFZd840XqRRqKgZe0uhXR5CC984SfKEKx7T298QAvMwA==",
   "success": true,
   "projectFilePath": "C:\\Users\\milly\\Source\\Repos\\ase-project\\GraphicProgrammingLanguage\\GraphicProgrammingLanguage.csproj",
   "expectedPackageFiles": [],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1803",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "You are running the 'restore' operation with an 'HTTP' source, 'http://packages.nuget.org'. Non-HTTPS access will be removed in a future version. Consider migrating to an 'HTTPS' source."
+    }
+  ]
 }

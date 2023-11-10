@@ -10,7 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		spec.txt = spec.txt
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestGraphicalProgrammingLanguage", "TestGraphicalProgrammingLanguage\TestGraphicalProgrammingLanguage.csproj", "{0280FD63-B536-41F6-9133-635C9AAA3147}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestGraphicalProgrammingLanguage", "TestGraphicalProgrammingLanguage\TestGraphicalProgrammingLanguage.csproj", "{82E9A728-50E8-4439-8485-0B6E8629B688}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,12 +22,15 @@ Global
 		{83148C8F-2301-4E9D-AD3F-4D4C50D9504C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83148C8F-2301-4E9D-AD3F-4D4C50D9504C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83148C8F-2301-4E9D-AD3F-4D4C50D9504C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0280FD63-B536-41F6-9133-635C9AAA3147}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0280FD63-B536-41F6-9133-635C9AAA3147}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0280FD63-B536-41F6-9133-635C9AAA3147}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0280FD63-B536-41F6-9133-635C9AAA3147}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82E9A728-50E8-4439-8485-0B6E8629B688}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82E9A728-50E8-4439-8485-0B6E8629B688}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82E9A728-50E8-4439-8485-0B6E8629B688}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82E9A728-50E8-4439-8485-0B6E8629B688}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BFCE165D-4CEF-4456-A515-B5E82F641A5B}
 	EndGlobalSection
 EndGlobal
