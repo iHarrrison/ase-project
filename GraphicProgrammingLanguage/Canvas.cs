@@ -17,6 +17,9 @@ namespace GraphicProgrammingLanguage
             drawingPosition = new DrawingPosition(0, 0);
         }
 
+        /// <summary>
+        /// Handles the event of clicking the save button, which will allow the user to store commands in the text box to a text file
+        /// </summary>
         private void saveButton_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
@@ -41,6 +44,9 @@ namespace GraphicProgrammingLanguage
             }
         }
 
+        /// <summary>
+        /// Handles the event of clicking the load button, which will allow users to load a text file of commands into the text box
+        /// </summary>
         private void loadButton_Click(Object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -65,6 +71,9 @@ namespace GraphicProgrammingLanguage
             }
         }
 
+        /// <summary>
+        /// Handles the event of clicking the run button, providing the ability to exectue the commands and draw shapes on the canvas
+        /// </summary>
         private void runButton_Click(object sender, EventArgs e)
         {
             string enteredCommand = commandTextBox.Text;

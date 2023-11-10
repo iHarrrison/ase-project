@@ -2,8 +2,17 @@
 using System.Drawing;
 using System.Windows.Forms;
 
+/// <summary>
+/// Enables the ability to draw triangles on the canvas
+/// </summary>
 public static class Triangle
 {
+    /// <summary>
+    /// Executes the Triangle command to draw a triangle onto the canvas with the given parameters
+    /// </summary>
+    /// <param name="pictureBox">The canvas in which the drawing occurs</param>
+    /// <param name="args">The array of strings containing the side length</param>
+    /// <param name="drawingPosition">The current position for drawing, as well as settings (fill/pen color)</param>
     public static void Execute(PictureBox pictureBox, string[] args, DrawingPosition drawingPosition)
     {
         if (args.Length < 1)
