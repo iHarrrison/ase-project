@@ -4,9 +4,15 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTestGraphicalProgrammingLanguage
 {
+    /// <summary>
+    /// Tests the CommandParser class behaves as expected
+    /// </summary>
     [TestClass]
     public class CommandParserTests
     {
+        /// <summary>
+        /// Tests to see if the command parser correctly parses the command and the argument
+        /// </summary>
         [TestMethod]
         public void CommandParser_Parses_Command_With_Arguments()
         {
@@ -22,6 +28,9 @@ namespace UnitTestGraphicalProgrammingLanguage
             CollectionAssert.AreEqual(new[] { "200", "200" }, commandParser.Args);
         }
 
+        /// <summary>
+        /// Tests to see if the command parser correctly handles empty commands
+        /// </summary>
         [TestMethod]
         public void CommandParser_Parses_Empty_Command()
         {
