@@ -11,8 +11,58 @@ namespace GraphicProgrammingLanguage
         {
             InitializeComponent();
             runButton.Click += runButton_Click;
+            saveButton.Click += saveButton_Click;
+            loadButton.Click += loadButton_Click;
 
             drawingPosition = new DrawingPosition(0, 0);
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Text Files|*.txt";
+            saveFileDialog.Title = "Save Commands File";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    using (StreamWriter writer = new StreamWriter(saveFileDialog.FileName))
+                    {
+                        writer.Write(commandTextBox.Text);
+                    }
+
+                    MessageBox.Show("Commands saved successfully.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error saving commands: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void loadButton_Click(Object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Text Files|*.txt";
+            openFileDialog.Title = "Open Commands File";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    using (StreamReader reader = new StreamReader(openFileDialog.FileName))
+                    {
+                        commandTextBox.Text = reader.ReadToEnd();
+                    }
+
+                    MessageBox.Show("Commands loaded successfully.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error loading commands: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void runButton_Click(object sender, EventArgs e)
@@ -71,7 +121,7 @@ namespace GraphicProgrammingLanguage
                         break;
 
                 }
-            } 
+            }
         }
 
     }

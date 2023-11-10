@@ -31,6 +31,8 @@
             pictureBox = new PictureBox();
             commandTextBox = new TextBox();
             runButton = new Button();
+            saveButton = new Button();
+            loadButton = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox).BeginInit();
             SuspendLayout();
             // 
@@ -52,19 +54,41 @@
             // 
             // runButton
             // 
-            runButton.Location = new Point(179, 450);
+            runButton.Location = new Point(52, 437);
             runButton.Name = "runButton";
-            runButton.Size = new Size(246, 52);
+            runButton.Size = new Size(158, 52);
             runButton.TabIndex = 2;
             runButton.Text = "Run Command";
             runButton.UseVisualStyleBackColor = true;
             runButton.Click += runButton_Click;
+            // 
+            // saveButton
+            // 
+            saveButton.Location = new Point(251, 437);
+            saveButton.Name = "saveButton";
+            saveButton.Size = new Size(158, 52);
+            saveButton.TabIndex = 3;
+            saveButton.Text = "Save";
+            saveButton.UseVisualStyleBackColor = true;
+            saveButton.Click += saveButton_Click;
+            // 
+            // loadButton
+            // 
+            loadButton.Location = new Point(451, 437);
+            loadButton.Name = "loadButton";
+            loadButton.Size = new Size(158, 52);
+            loadButton.TabIndex = 4;
+            loadButton.Text = "Load";
+            loadButton.UseVisualStyleBackColor = true;
+            loadButton.Click += loadButton_Click;
             // 
             // Canvas
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1368, 655);
+            Controls.Add(loadButton);
+            Controls.Add(saveButton);
             Controls.Add(runButton);
             Controls.Add(commandTextBox);
             Controls.Add(pictureBox);
@@ -80,5 +104,7 @@
         private PictureBox pictureBox;
         private TextBox commandTextBox;
         private Button runButton;
+        private Button saveButton;
+        private Button loadButton;
     }
 }
