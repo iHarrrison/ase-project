@@ -4,9 +4,15 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTestGraphicalProgrammingLanguage
 {
+    /// <summary>
+    /// Tests the Rectangle command
+    /// </summary>
     [TestClass]
     public class RectangleTests
     {
+        /// <summary>
+        /// Tests that the rectangle command leaves a shape on the canvas
+        /// </summary>
         [TestMethod]
         public void Rectangle_Execute_Pass()
         {
@@ -22,6 +28,9 @@ namespace UnitTestGraphicalProgrammingLanguage
             Assert.IsNotNull(pictureBox.Image);
         }
 
+        /// <summary>
+        /// Tests that no shape is left on the canvas if the parameters are incorrect
+        /// </summary>
         [TestMethod]
         public void Rectangle_Execute_Fail()
         {
