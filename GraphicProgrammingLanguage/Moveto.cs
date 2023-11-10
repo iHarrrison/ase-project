@@ -2,8 +2,17 @@
 using System.Drawing;
 using System.Windows.Forms;
 
+/// <summary>
+/// Enables the ability to move to a different drawing position on the canvas
+/// </summary>
 public static class Moveto
 {
+    /// <summary>
+    /// Executes the moveto command, moving to a given position on the canvas and creating a small dot
+    /// </summary>
+    /// <param name="pictureBox">The canvas in which the drawing occurs</param>
+    /// <param name="args">The array of strings containing the x and y coordinates</param>
+    /// <param name="drawingPosition">The current position for drawing, as well as settings (fill/pen color)</param>
     public static void Execute(PictureBox pictureBox, string[] args, DrawingPosition drawingPosition)
     {
         if (args.Length < 2)
