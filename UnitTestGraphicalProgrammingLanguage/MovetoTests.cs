@@ -4,9 +4,16 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTestGraphicalProgrammingLanguage
 {
+    /// <summary>
+    /// Tests the Moveto command
+    /// </summary>
     [TestClass]
     public class MovetoTests
     {
+        /// <summary>
+        /// Tests that the moveto command works as expected via validating the canvas is not null after use - as it leaves
+        /// a small circle showing the user where abouts they are now located on the canvas
+        /// </summary>
         [TestMethod]
         public void Moveto_Execute_Pass()
         {
@@ -22,6 +29,10 @@ namespace UnitTestGraphicalProgrammingLanguage
             Assert.IsNotNull(pictureBox.Image);
         }
 
+        /// <summary>
+        /// Tests that if it fails, the canvas is still empty as the circle will not have been drawn to show the
+        /// user whereabouts they are on the canvas
+        /// </summary>
         [TestMethod]
         public void Moveto_Execute_Fail()
         {
