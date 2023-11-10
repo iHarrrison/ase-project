@@ -4,9 +4,15 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTestGraphicalProgrammingLanguage
 {
+    /// <summary>
+    /// Tests the clear command
+    /// </summary>
     [TestClass]
     public class ClearTests
     {
+        /// <summary>
+        /// Tests to see if the clear command behaves as expected when it executes
+        /// </summary>
         [TestMethod]
         public void Clear_Execute_Pass()
         {
@@ -23,6 +29,10 @@ namespace UnitTestGraphicalProgrammingLanguage
             Assert.IsNull(pictureBox.Image);
         }
 
+        /// <summary>
+        /// Tests to make sure that if something is drawn after the clear command, it performs correctly. Showcases clear does not prevent the
+        /// image from being drawn on even after it has been used.
+        /// </summary>
         [TestMethod]
         public void Clear_Execute_Fail()
         {
