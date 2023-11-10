@@ -4,9 +4,15 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTestGraphicalProgrammingLanguage
 {
+    /// <summary>
+    /// Tests the Drawto command
+    /// </summary>
     [TestClass]
     public class DrawtoTests
     {
+        /// <summary>
+        /// Tests to see if the drawto command correctly applies a line to the canvas
+        /// </summary>
         [TestMethod]
         public void Drawto_Execute_Pass()
         {
@@ -22,6 +28,9 @@ namespace UnitTestGraphicalProgrammingLanguage
             Assert.IsNotNull(pictureBox.Image);
         }
 
+        /// <summary>
+        /// Tests to make sure that if an invalid argument is passed, the execute fails as expected.
+        /// </summary>
         [TestMethod]
         public void Drawto_Execute_Fail()
         {
