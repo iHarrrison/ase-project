@@ -4,9 +4,15 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTestGraphicalProgrammingLanguage
 {
+    /// <summary>
+    /// Tests the Fill class
+    /// </summary>
     [TestClass]
     public class FillTests
     {
+        /// <summary>
+        /// Tests to see if the Fill bool behaves as expected when receiving the "on" argument
+        /// </summary>
         [TestMethod]
         public void Fill_Execute_Pass()
         {
@@ -22,6 +28,9 @@ namespace UnitTestGraphicalProgrammingLanguage
             Assert.IsTrue(drawingPosition.FillOn);
         }
 
+        /// <summary>
+        /// Tests to see the behaviour is as expected when an invalid argument is passed for this command
+        /// </summary>
         [TestMethod]
         public void Fill_Execute_Fail()
         {
