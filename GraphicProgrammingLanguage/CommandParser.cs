@@ -4,11 +4,26 @@ using System.Linq;
 
 namespace GraphicProgrammingLanguage
 {
+    /// <summary>
+    /// Parses commands, seperates the command and argument from each other
+    /// </summary>
     public class CommandParser
     {
+        /// <summary>
+        /// Gets the command
+        /// </summary>
         public string Command { get; private set; }
+
+        /// <summary>
+        /// Gets the arguments for the given command
+        /// </summary>
         public string[] Args { get; private set; }
 
+        /// <summary>
+        /// Initialises a new instance of the CommandParser class
+        /// </summary>
+        /// <param name="pictureBox">The canvas in which the drawing occurs</param>
+        /// <param name="enteredCommand">The command string to be parsed</param>
         public CommandParser( PictureBox pictureBox, string enteredCommand)
         {
             ParseCommand(enteredCommand);
