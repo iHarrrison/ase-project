@@ -4,9 +4,15 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTestGraphicalProgrammingLanguage
 {
+    /// <summary>
+    /// To test functionality of the Circle command
+    /// </summary>
     [TestClass]
     public class CircleTests
     {
+        /// <summary>
+        /// Does the circle successfully execute as expected
+        /// </summary>
         [TestMethod]
         public void Circle_Execute_Pass()
         {
@@ -22,6 +28,9 @@ namespace UnitTestGraphicalProgrammingLanguage
             Assert.IsNotNull(pictureBox.Image);
         }
 
+        /// <summary>
+        /// Does the circle fail to execute as expected
+        /// </summary>
         [TestMethod]
         public void Circle_Execute_Fail()
         {
