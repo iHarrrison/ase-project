@@ -15,7 +15,7 @@ public static class Moveto
     /// <param name="drawingPosition">The current position for drawing, as well as settings (fill/pen color)</param>
     public static void Execute(PictureBox pictureBox, string[] args, DrawingPosition drawingPosition)
     {
-        if (args.Length < 2)
+        if (args.Length != 2)
         {
             MessageBox.Show("The moveto command expects two arguments (x and y coordinates)", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return;

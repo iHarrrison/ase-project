@@ -15,7 +15,7 @@ public static class Rectangle
     /// <param name="drawingPosition">The current position for drawing, as well as settings (fill/pen color)</param>
     public static void Execute(PictureBox pictureBox, string[] args, DrawingPosition drawingPosition)
     {
-        if (args.Length < 2)
+        if (args.Length != 2)
         {
             MessageBox.Show("The rectangle command expects two arguments (width and height).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return;

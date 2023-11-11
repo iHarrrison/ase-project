@@ -15,7 +15,7 @@ public static class CanvasPen
     /// <param name="drawingPosition">The current position for drawing, as well as settings (fill/pen color)</param>
     public static void Execute(PictureBox pictureBox, string[] args, DrawingPosition drawingPosition)
     {
-        if (args.Length < 1)
+        if (args.Length != 1)
         {
             MessageBox.Show("Pen command expects one argument (colour).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return;

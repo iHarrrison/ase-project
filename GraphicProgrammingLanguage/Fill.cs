@@ -10,7 +10,7 @@ public static class Fill
     /// <param name="args">An array of string arguments to set the fill to on or off</param>
     public static void Execute(DrawingPosition drawingPosition, string[] args)
     {
-        if (args.Length <1)
+        if (args.Length != 1)
         {
             MessageBox.Show("The fill command expects one argument (on/off)", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
