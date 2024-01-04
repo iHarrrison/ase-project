@@ -10,9 +10,6 @@ namespace GraphicProgrammingLanguage
         public Canvas()
         {
             InitializeComponent();
-            runButton.Click += runButton_Click;
-            saveButton.Click += saveButton_Click;
-            loadButton.Click += loadButton_Click;
 
             drawingPosition = new DrawingPosition(0, 0);
         }
