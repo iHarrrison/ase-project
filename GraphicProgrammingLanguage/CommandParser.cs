@@ -12,12 +12,12 @@ namespace GraphicProgrammingLanguage
         /// <summary>
         /// Gets the command
         /// </summary>
-        public string Command { get; private set; }
+        public string Command { get; private set; } = "";
 
         /// <summary>
         /// Gets the arguments for the given command
         /// </summary>
-        public string[] Args { get; private set; }
+        public string[] Args { get; private set; } = Array.Empty<string>();
 
         /// <summary>
         /// Initialises a new instance of the CommandParser class
