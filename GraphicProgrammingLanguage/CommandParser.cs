@@ -52,16 +52,16 @@ namespace GraphicProgrammingLanguage
             }
         }
 
-        private string[] ParseArguments(string[] commandParts, int startIndex)
-        {
-            List<string> arguments = new List<string>();
+        private static string[] ParseArguments(string[] commandParts, int startIndex) => commandParts[startIndex..];
+        //{
+        //    List<string> arguments = new List<string>();
 
-            for (int i = startIndex; i < commandParts.Length; i++)
-            {
-                arguments.Add(commandParts[i]);
-            }
+        //    for (int i = startIndex; i < commandParts.Length; i++)
+        //    {
+        //        arguments.Add(commandParts[i]);
+        //    }
 
-            return arguments.ToArray();
-        }
+        //    return arguments.ToArray();
+        //}
     }
 }
