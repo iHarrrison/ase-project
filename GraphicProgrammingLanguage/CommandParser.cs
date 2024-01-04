@@ -33,7 +33,7 @@ namespace GraphicProgrammingLanguage
         {
             string[] commandParts = commandText.Split(' ', StringSplitOptions.RemoveEmptyEntries);
 
-            if (commandParts.Length == 0)
+            if (!commandParts.Any())
             {
                 Command = "";
                 Args = Array.Empty<string>();
@@ -53,15 +53,5 @@ namespace GraphicProgrammingLanguage
         }
 
         private static string[] ParseArguments(string[] commandParts, int startIndex) => commandParts[startIndex..];
-        //{
-        //    List<string> arguments = new List<string>();
-
-        //    for (int i = startIndex; i < commandParts.Length; i++)
-        //    {
-        //        arguments.Add(commandParts[i]);
-        //    }
-
-        //    return arguments.ToArray();
-        //}
     }
 }
