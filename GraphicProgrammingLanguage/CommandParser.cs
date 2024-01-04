@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace GraphicProgrammingLanguage
+﻿namespace GraphicProgrammingLanguage
 {
     /// <summary>
     /// Parses commands, seperates the command and argument from each other
@@ -12,19 +8,19 @@ namespace GraphicProgrammingLanguage
         /// <summary>
         /// Gets the command
         /// </summary>
-        public string Command { get; private set; } = "";
+        public string Command { get; private set; }
 
         /// <summary>
         /// Gets the arguments for the given command
         /// </summary>
-        public string[] Args { get; private set; } = Array.Empty<string>();
+        public string[] Args { get; private set; }
 
         /// <summary>
         /// Initialises a new instance of the CommandParser class
         /// </summary>
         /// <param name="pictureBox">The canvas in which the drawing occurs</param>
         /// <param name="enteredCommand">The command string to be parsed</param>
-        public CommandParser( PictureBox pictureBox, string enteredCommand)
+        public CommandParser(PictureBox pictureBox, string enteredCommand)
         {
             ParseCommand(enteredCommand);
         }
