@@ -13,14 +13,14 @@ public class AssignVariable : AbstractGPLCommand
 
     public override int ExpectedArgumentsCount => 1;
 
-    public AssignVariable(params object[] args) =>
-        Arguments = new Regex(AssignmentOpMatchPattern).Split($"{args[0]}").Select(token => token.Trim()).ToArray();
+    public AssignVariable(CommandInfo commandInfo) =>
+         Arguments = new Regex(AssignmentOpMatchPattern).Split(commandInfo.Arguments).Select(token => token.Trim()).ToArray();
 
     public override bool IsValid() => Arguments.Length > ExpectedArgumentsCount;
 
     public override bool Execute(PictureBox pictureBox, DrawingPosition drawingPosition)
     {
-        if (!Parser.TryParseIntExpression(Arguments[ValueIndex], out int value))
+        if (!Parser.TryParseExpression(Arguments[ValueIndex], out int value))
         {
             return false;
         }

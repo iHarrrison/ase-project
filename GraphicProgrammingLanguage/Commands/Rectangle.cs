@@ -13,7 +13,7 @@ public class Rectangle : AbstractGPLCommand
 
     public override bool Execute(PictureBox pictureBox, DrawingPosition drawingPosition)
     {
-        if (!(Parser.TryParseIntExpression(Arguments[0], out int width) && Parser.TryParseIntExpression(Arguments[1], out int height)))
+        if (!(Parser.TryParseExpression(Arguments[0], out int width) && Parser.TryParseExpression(Arguments[1], out int height)))
         {
             return false;
         }

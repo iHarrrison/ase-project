@@ -9,7 +9,7 @@ public class Fill : AbstractGPLCommand
 
     public override bool Execute(PictureBox pictureBox, DrawingPosition drawingPosition)
     {
-        if (!Parser.TryParseIntExpression(Arguments[0], out int isOn))
+        if (!Parser.TryParseExpression(Arguments[0], out int isOn))
         {
             return false;
         }

@@ -13,7 +13,7 @@ public class Circle : AbstractGPLCommand
 
     public override bool Execute(PictureBox pictureBox, DrawingPosition drawingPosition)
     {
-        if (!Parser.TryParseIntExpression(Arguments[0], out int radius))
+        if (!Parser.TryParseExpression(Arguments[0], out int radius))
         {
             return false;
         }

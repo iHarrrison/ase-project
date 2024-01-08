@@ -18,7 +18,8 @@ public static class CommandFactory
         { "fill", typeof(Fill) },
         { "clear", typeof(Clear) },
         { "reset", typeof(Reset) },
-        { "var", typeof(AssignVariable) }
+        { "var", typeof(AssignVariable) },
+        { "if", typeof(IfCondition) },
     };
 
     public static IGPLCommand[] CreateCommandListNew(CommandInfo[] commandInfos)
@@ -30,7 +31,7 @@ public static class CommandFactory
             {
                 if (!_commandTokenMap.TryGetValue(commandInfo.Command.ToLower(), out Type? commandType))
                 {
-                    MessageBox.Show($"NO COMMAND FOUND FOR YOU!!! {commandInfo.Command}", "Command not found!"); // todo: change me
+                    MessageBox.Show($"Error with entered command {commandInfo.Command}", "Command not found!");
                     return Array.Empty<IGPLCommand>();
                 }
                 if ((IGPLCommand?)Activator.CreateInstance(commandType, commandInfo) is { } instancedCommand &&
@@ -41,7 +42,7 @@ public static class CommandFactory
                 else
                 {
                     // Error Handling
-                    MessageBox.Show($"COMMAND: {commandInfo.Command} FELL OVER!!!", "Command creation error!"); // todo: change me
+                    MessageBox.Show($"Command {commandInfo.Command} fell over", "Command creation error!"); // todo: change me
                 }
             }
         }
