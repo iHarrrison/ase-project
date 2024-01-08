@@ -1,6 +1,7 @@
 ﻿using System.Windows.Forms;
-using GraphicProgrammingLanguage;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using GraphicProgrammingLanguage.Commands;
+using GraphicProgrammingLanguage.Model;
 
 namespace UnitTestGraphicalProgrammingLanguage
 {
@@ -18,14 +19,15 @@ namespace UnitTestGraphicalProgrammingLanguage
         {
             // Given
             var pictureBox = new PictureBox();
-            var args = new String[] { "on" };
+            var args = new String[] { "1" };
             var drawingPosition = new DrawingPosition(250, 250);
+            var fill = new Fill(args);
 
             // When
-            Fill.Execute(drawingPosition, args);
+            bool executeResult = fill.Execute(pictureBox, drawingPosition);
 
             // Then
-            Assert.IsTrue(drawingPosition.FillOn);
+            Assert.IsTrue(executeResult);
         }
 
         /// <summary>
@@ -38,12 +40,13 @@ namespace UnitTestGraphicalProgrammingLanguage
             var pictureBox = new PictureBox();
             var args = new String[] { "I will neither confirm nor deny if fill is on" };
             var drawingPosition = new DrawingPosition(250, 250);
+            var fill = new Fill(args);
 
             // When
-            Fill.Execute(drawingPosition, args);
+            bool executeResult = fill.Execute(pictureBox, drawingPosition);
 
             // Then
-            Assert.IsFalse(drawingPosition.FillOn);
+            Assert.IsFalse(executeResult);
         }
     }
 }

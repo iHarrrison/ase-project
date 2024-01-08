@@ -1,6 +1,8 @@
 ﻿using System.Windows.Forms;
-using GraphicProgrammingLanguage;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using GraphicProgrammingLanguage.Commands;
+using GraphicProgrammingLanguage.Model;
+using System.Drawing;
 
 namespace UnitTestGraphicalProgrammingLanguage
 {
@@ -18,14 +20,16 @@ namespace UnitTestGraphicalProgrammingLanguage
         {
             // Given
             var pictureBox = new PictureBox();
+            pictureBox.Image = new Bitmap(500, 500);
             var args = new String[] { "200" };
             var drawingPosition = new DrawingPosition(250, 250);
+            var circle = new Circle(args);
 
             // When
-            Circle.Execute(pictureBox, args, drawingPosition);
+            bool executeResult = circle.Execute(pictureBox, drawingPosition);
 
             // Then
-            Assert.IsNotNull(pictureBox.Image);
+            Assert.IsTrue(executeResult);
         }
 
         /// <summary>
@@ -36,14 +40,16 @@ namespace UnitTestGraphicalProgrammingLanguage
         {
             // Given
             var pictureBox = new PictureBox();
+            pictureBox.Image = new Bitmap(500, 500);
             var args = new String[] { "This is not a number!" };
             var drawingPosition = new DrawingPosition(250, 250);
+            var circle = new Circle(args);
 
             // When
-            Circle.Execute(pictureBox, args, drawingPosition);
+            bool executeResult = circle.Execute(pictureBox, drawingPosition);
 
             // Then
-            Assert.IsNull(pictureBox.Image);
+            Assert.IsFalse(executeResult);
         }
     }
 }

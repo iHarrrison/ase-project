@@ -1,6 +1,7 @@
 using System.Windows.Forms;
-using GraphicProgrammingLanguage;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using GraphicProgrammingLanguage.Commands;
+using GraphicProgrammingLanguage.Model;
 
 namespace UnitTestGraphicalProgrammingLanguage
 {
@@ -20,13 +21,13 @@ namespace UnitTestGraphicalProgrammingLanguage
             var pictureBox = new PictureBox();
             var args = new String[] { "200" };
             var drawingPosition = new DrawingPosition(250, 250);
+            var clear = new Clear();
 
             // When
-            Triangle.Execute(pictureBox, args, drawingPosition);
-            Clear.Execute(pictureBox, args, drawingPosition);
+            bool executeResult = clear.Execute(pictureBox, drawingPosition);
 
             // Then
-            Assert.IsNull(pictureBox.Image);
+            Assert.IsTrue(executeResult);
         }
 
         /// <summary>
@@ -40,10 +41,12 @@ namespace UnitTestGraphicalProgrammingLanguage
             var pictureBox = new PictureBox();
             var args = new String[] { "200" };
             var drawingPosition = new DrawingPosition(250, 250);
+            var triangle = new Triangle(args);
+            var clear = new Clear();
 
             // When
-            Clear.Execute(pictureBox, args, drawingPosition);
-            Triangle.Execute(pictureBox, args, drawingPosition);
+            clear.Execute(pictureBox, drawingPosition);
+            triangle.Execute(pictureBox, drawingPosition);
 
             // Then
             Assert.IsNotNull(pictureBox.Image);
