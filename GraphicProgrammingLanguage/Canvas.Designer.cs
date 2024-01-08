@@ -93,7 +93,7 @@
             Controls.Add(commandTextBox);
             Controls.Add(pictureBox);
             Name = "Canvas";
-            Text = "Form1";
+            Text = "GraphicalProgramEntryForm";
             ((System.ComponentModel.ISupportInitialize)pictureBox).EndInit();
             ResumeLayout(false);
             PerformLayout();

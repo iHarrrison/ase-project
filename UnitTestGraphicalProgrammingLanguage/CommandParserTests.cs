@@ -21,7 +21,7 @@ namespace UnitTestGraphicalProgrammingLanguage
             var enteredCommand = "drawto 200 200";
 
             // When
-            var commandParser = new CommandParser(pictureBox, enteredCommand);
+            var commandParser = new Parser(pictureBox, enteredCommand);
 
             // Then
             Assert.AreEqual("drawto", commandParser.Command);
@@ -39,7 +39,7 @@ namespace UnitTestGraphicalProgrammingLanguage
             var enteredCommand = "";
 
             // When
-            var commandParser = new CommandParser(pictureBox, enteredCommand);
+            var commandParser = new Parser(pictureBox, enteredCommand);
 
             // Then
             Assert.AreEqual("", commandParser.Command);

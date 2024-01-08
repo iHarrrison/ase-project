@@ -1,22 +1,20 @@
-﻿using GraphicProgrammingLanguage.Commands;
+﻿namespace GraphicProgrammingLanguage.Commands;
+
+using Model;
 
 /// <summary>
 /// Enables the functionality to clear the canvas of any drawings
 /// </summary>
-public class Clear : AbstractCommand
+public class Clear : AbstractGPLCommand
 {
-    /// <summary>
-    /// Executes the clearing of the canvas
-    /// </summary>
-    /// <param name="pictureBox">The canvas in which the drawing occurs</param>
-    /// <param name="args"></param>
-    /// <param name="drawingPosition">The current position for drawing, as well as settings (fill/pen color)</param>
-    public override bool Execute(PictureBox pictureBox, DrawingPosition drawingPosition, params string[] args)
+    public override int ExpectedArgumentsCount => 0;
+
+    public override bool Execute(PictureBox pictureBox, DrawingPosition drawingPosition)
     {
-        // Clears the PictureBox
-        pictureBox.Image = null;
+        pictureBox.Image = new Bitmap(pictureBox.Size.Width, pictureBox.Size.Height);
 
         MessageBox.Show("Canvas cleared!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
         return true;
     }
 }

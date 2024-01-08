@@ -1,38 +1,20 @@
-﻿using GraphicProgrammingLanguage.Commands;
+﻿namespace GraphicProgrammingLanguage.Commands;
+
+using Model;
 
 /// <summary>
 /// Handles commands for the pen color for drawing on the canvas
 /// </summary>
-public class CanvasPen : AbstractCommand
+public class CanvasPen : AbstractGPLCommand
 {
-    private Color DefaultColor => Color.Black;
+    public override int ExpectedArgumentsCount => 1;
 
-    /// <summary>
-    /// Executes the pen color command to select from specific colors for the canvas pen
-    /// </summary>
-    /// <param name="pictureBox">The canvas in which the drawing occurs</param>
-    /// <param name="args">The argument containing the pen color</param>
-    /// <param name="drawingPosition">The current position for drawing, as well as settings (fill/pen color)</param>
-    public override bool Execute(PictureBox pictureBox, DrawingPosition drawingPosition, params string[] args)
+    public CanvasPen(params object[] args) => Arguments = args.Cast<string>().ToArray();
+    public override bool Execute(PictureBox pictureBox, DrawingPosition drawingPosition)
     {
-        if (!args.Any())
-        {
-            MessageBox.Show("Pen command expects one argument (colour).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            return false;
-        }
-
-        try
-        {
-            drawingPosition.PenColor = DefaultColor;
-        }
-        catch
-        {
-            Console.WriteLine("Invalid color value for Pen command.");
-            return false;
-        }
-
-        MessageBox.Show($"Pen color set to {args[0].ToLower()}.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        Color newColour = Color.FromName($"{Arguments[0]}");
+        drawingPosition.PenColor = newColour;
+        MessageBox.Show($"Pen color set to {newColour.Name}.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         return true;
     }

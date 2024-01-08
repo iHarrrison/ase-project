@@ -1,46 +1,35 @@
-﻿using GraphicProgrammingLanguage.Commands;
+﻿namespace GraphicProgrammingLanguage.Commands;
+
+using Model;
 
 /// <summary>
 /// Enables the ability to draw rectangles on the canvas
 /// </summary>
-public class Rectangle : AbstractCommand
+public class Rectangle : AbstractGPLCommand
 {
-    /// <summary>
-    /// Executes the Rectangle command to draw a rectangle onto the canvas with the given parameters
-    /// </summary>
-    /// <param name="pictureBox">The canvas in which the drawing occurs</param>
-    /// <param name="args">The array of strings containing the width and height</param>
-    /// <param name="drawingPosition">The current position for drawing, as well as settings (fill/pen color)</param>
-    public override bool Execute(PictureBox pictureBox, DrawingPosition drawingPosition, params string[] args)
+    public override int ExpectedArgumentsCount => 2;
+
+    public Rectangle(params object[] args) => Arguments = $"{args[0]}".Split(',', Constants.ArgumentSplitFlags);
+
+    public override bool Execute(PictureBox pictureBox, DrawingPosition drawingPosition)
     {
-        if (args.Length != 2)
+        if (!(Parser.TryParseIntExpression(Arguments[0], out int width) && Parser.TryParseIntExpression(Arguments[1], out int height)))
         {
-            MessageBox.Show("The rectangle command expects two arguments (width and height).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return false;
         }
 
-        if (int.TryParse(args[0], out int width) && int.TryParse(args[1], out int height))
+        using (Graphics g = Graphics.FromImage(pictureBox.Image))
         {
-            // check to see if the pictureBox.Image is null, if it is, instantiate.
-            pictureBox.Image ??= new Bitmap(pictureBox.Width, pictureBox.Height);
-
-            // Set the pen color using CanvasPen
-            new CanvasPen().Execute(pictureBox, drawingPosition, args);
-
-            using (Graphics g = Graphics.FromImage(pictureBox.Image))
+            if (drawingPosition.FillOn)
             {
-                if (drawingPosition.FillOn)
-                {
-                    g.FillRectangle(new SolidBrush(drawingPosition.PenColor), drawingPosition.X, drawingPosition.Y, width, height);
-                }
+                g.FillRectangle(new SolidBrush(drawingPosition.PenColor), drawingPosition.X, drawingPosition.Y, width, height);
+            }
+            else
+            {
                 g.DrawRectangle(new Pen(drawingPosition.PenColor), drawingPosition.X, drawingPosition.Y, width, height);
             }
-
-            pictureBox.Refresh(); // Refresh the PictureBox to display the changes
-            return true;
         }
 
-        MessageBox.Show("Invalid width or height values for Rectangle command.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        return false;
+        return true;
     }
 }
