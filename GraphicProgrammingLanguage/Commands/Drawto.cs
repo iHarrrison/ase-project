@@ -9,7 +9,7 @@ public class Drawto : AbstractGPLCommand
 {
     public override int ExpectedArgumentsCount => 2;
 
-    public Drawto(params object[] args) => Arguments = $"{args[0]}".Split(',', Constants.ArgumentSplitFlags);
+    public Drawto(CommandInfo commandInfo) => Arguments = commandInfo.Arguments.Split(',', Constants.ArgumentSplitFlags);
 
     public override bool Execute(PictureBox pictureBox, DrawingPosition drawingPosition)
     {

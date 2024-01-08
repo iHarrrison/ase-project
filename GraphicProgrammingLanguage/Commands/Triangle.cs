@@ -9,8 +9,8 @@ public class Triangle : AbstractGPLCommand
 {
     public override int ExpectedArgumentsCount => 1;
 
-    public Triangle(params object[] args) => Arguments = args.Cast<string>().ToArray();
-   
+    public Triangle(CommandInfo commandInfo) => Arguments = new[] { commandInfo.Arguments };
+
     public override bool Execute(PictureBox pictureBox, DrawingPosition drawingPosition)
     {
       

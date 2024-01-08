@@ -9,7 +9,7 @@ public class Rectangle : AbstractGPLCommand
 {
     public override int ExpectedArgumentsCount => 2;
 
-    public Rectangle(params object[] args) => Arguments = $"{args[0]}".Split(',', Constants.ArgumentSplitFlags);
+    public Rectangle(CommandInfo commandInfo) => Arguments = commandInfo.Arguments.Split(',', Constants.ArgumentSplitFlags);
 
     public override bool Execute(PictureBox pictureBox, DrawingPosition drawingPosition)
     {

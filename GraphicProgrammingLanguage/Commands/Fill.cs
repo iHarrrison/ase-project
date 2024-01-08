@@ -5,7 +5,7 @@ public class Fill : AbstractGPLCommand
 {
     public override int ExpectedArgumentsCount => 1;
 
-    public Fill(params object[] args) => Arguments = args.Cast<string>().ToArray();
+    public Fill(CommandInfo commandInfo) => Arguments = new[] { commandInfo.Arguments };
 
     public override bool Execute(PictureBox pictureBox, DrawingPosition drawingPosition)
     {

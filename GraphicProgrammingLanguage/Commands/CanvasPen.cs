@@ -9,7 +9,7 @@ public class CanvasPen : AbstractGPLCommand
 {
     public override int ExpectedArgumentsCount => 1;
 
-    public CanvasPen(params object[] args) => Arguments = args.Cast<string>().ToArray();
+    public CanvasPen(CommandInfo commandInfo) => Arguments = new[] { commandInfo.Arguments };
     public override bool Execute(PictureBox pictureBox, DrawingPosition drawingPosition)
     {
         Color newColour = Color.FromName($"{Arguments[0]}");

@@ -33,7 +33,7 @@ public static class CommandFactory
                     MessageBox.Show($"NO COMMAND FOUND FOR YOU!!! {commandInfo.Command}", "Command not found!"); // todo: change me
                     return Array.Empty<IGPLCommand>();
                 }
-                if ((IGPLCommand?)Activator.CreateInstance(commandType, commandInfo.Arguments) is { } instancedCommand &&
+                if ((IGPLCommand?)Activator.CreateInstance(commandType, commandInfo) is { } instancedCommand &&
                     instancedCommand.IsValid())
                 {
                     commands.Add(instancedCommand);

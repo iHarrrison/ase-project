@@ -9,7 +9,7 @@ public class Circle : AbstractGPLCommand
 {
     public override int ExpectedArgumentsCount => 1;
 
-    public Circle(params object[] args) => Arguments = args.Cast<string>().ToArray();
+    public Circle(CommandInfo commandInfo) => Arguments = new[] { commandInfo.Arguments };
 
     public override bool Execute(PictureBox pictureBox, DrawingPosition drawingPosition)
     {

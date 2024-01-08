@@ -13,7 +13,7 @@ public class Moveto : AbstractGPLCommand
     private int _xPosition;
     private int _yPosition;
 
-    public Moveto(params object[] args) => Arguments = $"{args[0]}".Split(',', Constants.ArgumentSplitFlags);
+    public Moveto(CommandInfo commandInfo) => Arguments = commandInfo.Arguments.Split(',', Constants.ArgumentSplitFlags);
 
     public override bool Execute(PictureBox pictureBox, DrawingPosition drawingPosition)
     {
