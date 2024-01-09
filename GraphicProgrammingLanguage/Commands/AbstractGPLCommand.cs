@@ -12,7 +12,6 @@ public interface IGPLCommand
 public abstract class AbstractGPLCommand : IGPLCommand
 {
     public abstract int ExpectedArgumentsCount { get; }
-
     public string[] Arguments { get; init; }
 
     protected AbstractGPLCommand(params object[] args) => Arguments = Array.Empty<string>();
