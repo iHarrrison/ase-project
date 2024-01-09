@@ -5,6 +5,9 @@ namespace GraphicProgrammingLanguage.Factory;
 using Commands;
 using Model;
 
+/// <summary>
+/// Factory class responsible for creating instances of commands based on provided command information.
+/// </summary>
 public static class CommandFactory
 {
     private static readonly Dictionary<string, Type> _commandTokenMap = new()
@@ -21,6 +24,12 @@ public static class CommandFactory
         { "var", typeof(AssignVariable) },
         { "if", typeof(IfCondition) },
     };
+
+    /// <summary>
+    /// Creates a list of commands based on an array of command information.
+    /// </summary>
+    /// <param name="commandInfos">Array of command information.</param>
+    /// <returns>An array of instantiated GPL commands.</returns>
 
     public static IGPLCommand[] CreateCommandList(CommandInfo[] commandInfos)
     {
@@ -42,7 +51,7 @@ public static class CommandFactory
                 else
                 {
                     // Error Handling
-                    MessageBox.Show($"Command {commandInfo.Command} fell over", "Command creation error!"); // todo: change me
+                    MessageBox.Show($"Command {commandInfo.Command} fell over", "Command creation error!");
                 }
             }
         }
