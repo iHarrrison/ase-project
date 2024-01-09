@@ -7,13 +7,36 @@ using Model;
 /// </summary>
 public class Drawto : AbstractGPLCommand
 {
+    /// <summary>
+    /// Gets the expected number of arguments for the Drawto command.
+    /// </summary>
     public override int ExpectedArgumentsCount => 2;
 
+    /// <summary>
+    /// Gets the X-coordinate target from the command arguments.
+    /// </summary>
+    private string XTarget => Arguments[0];
+
+    /// <summary>
+    /// Gets the Y-coordinate target from the command arguments.
+    /// </summary>
+    private string YTarget => Arguments[1];
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="Drawto"/> class.
+    /// </summary>
+    /// <param name="commandInfo">The command information containing arguments.</param>
     public Drawto(CommandInfo commandInfo) => Arguments = commandInfo.Arguments.Split(',', Constants.ArgumentSplitFlags);
 
+    /// <summary>
+    /// Executes the Drawto command, drawing lines from one place to another on the canvas.
+    /// </summary>
+    /// <param name="pictureBox">The PictureBox where drawing takes place.</param>
+    /// <param name="drawingPosition">The current drawing position.</param>
+    /// <returns>True if the command execution is successful; otherwise, false.</returns>
     public override bool Execute(PictureBox pictureBox, DrawingPosition drawingPosition)
     {
-        if (!int.TryParse($"{Arguments[0]}", out int xTarget) || !int.TryParse($"{Arguments[1]}", out int yTarget))
+        if (!int.TryParse(XTarget, out int xTarget) || !int.TryParse(YTarget, out int yTarget))
         {
             return false;
         }
