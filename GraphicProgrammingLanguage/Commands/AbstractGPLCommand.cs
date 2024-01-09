@@ -1,4 +1,6 @@
-﻿namespace GraphicProgrammingLanguage.Commands;
+﻿using GraphicProgrammingLanguage.Model;
+
+namespace GraphicProgrammingLanguage.Commands;
 
 /// <summary>
 /// Represents the interface for a Graphic Programming Language (GPL) command.
@@ -84,7 +86,7 @@ public abstract class AbstractGPLConditionalCommand : AbstractGPLCommand
     /// <summary>
     /// Initializes a new instance of the <see cref="AbstractGPLConditionalCommand"/> class.
     /// </summary>
-    protected AbstractGPLConditionalCommand()
+    protected AbstractGPLConditionalCommand(CommandInfo commandInfo) : base(commandInfo)
     {
         TrueCommandList = Array.Empty<IGPLCommand>();
         FalseCommandList = Array.Empty<IGPLCommand>();
