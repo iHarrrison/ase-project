@@ -9,15 +9,17 @@ public class Moveto : AbstractGPLCommand
 {
     private const int MarkerSize = 5;
     public override int ExpectedArgumentsCount => 2;
+    private string XPos => Arguments[0];
+    private string YPos => Arguments[1];
 
     private int _xPosition;
     private int _yPosition;
 
-    public Moveto(CommandInfo commandInfo) => Arguments = commandInfo.Arguments.Split(',', Constants.ArgumentSplitFlags);
+    public Moveto(CommandInfo commandInfo) : base(commandInfo) { }
 
     public override bool Execute(PictureBox pictureBox, DrawingPosition drawingPosition)
     {
-        if (!int.TryParse($"{Arguments[0]}", out int xPos) || !int.TryParse($"{Arguments[1]}", out int yPos))
+        if (!int.TryParse(XPos, out int xPos) || !int.TryParse(YPos, out int yPos))
         {
             return false;
         }

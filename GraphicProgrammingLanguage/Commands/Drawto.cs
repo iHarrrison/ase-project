@@ -26,7 +26,7 @@ public class Drawto : AbstractGPLCommand
     /// Initializes a new instance of the <see cref="Drawto"/> class.
     /// </summary>
     /// <param name="commandInfo">The command information containing arguments.</param>
-    public Drawto(CommandInfo commandInfo) => Arguments = commandInfo.Arguments.Split(',', Constants.ArgumentSplitFlags);
+    public Drawto(CommandInfo commandInfo) : base(commandInfo) { }
 
     /// <summary>
     /// Executes the Drawto command, drawing lines from one place to another on the canvas.

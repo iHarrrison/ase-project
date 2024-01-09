@@ -73,7 +73,7 @@
             Gets or sets the arguments provided for the command.
             </summary>
         </member>
-        <member name="M:GraphicProgrammingLanguage.Commands.AbstractGPLCommand.#ctor(System.Object[])">
+        <member name="M:GraphicProgrammingLanguage.Commands.AbstractGPLCommand.#ctor(GraphicProgrammingLanguage.Model.CommandInfo)">
             <summary>
             Initializes a new instance of the <see cref="T:GraphicProgrammingLanguage.Commands.AbstractGPLCommand"/> class.
             </summary>
@@ -108,7 +108,7 @@
             Gets or sets the list of commands to execute if the condition is false.
             </summary>
         </member>
-        <member name="M:GraphicProgrammingLanguage.Commands.AbstractGPLConditionalCommand.#ctor">
+        <member name="M:GraphicProgrammingLanguage.Commands.AbstractGPLConditionalCommand.#ctor(GraphicProgrammingLanguage.Model.CommandInfo)">
             <summary>
             Initializes a new instance of the <see cref="T:GraphicProgrammingLanguage.Commands.AbstractGPLConditionalCommand"/> class.
             </summary>
@@ -147,15 +147,152 @@
             Enables the ability to draw circles on the canvas
             </summary>
         </member>
+        <member name="P:GraphicProgrammingLanguage.Commands.Circle.ExpectedArgumentsCount">
+            <summary>
+            Gets the expected number of arguments for the Circle command.
+            </summary>
+        </member>
+        <member name="P:GraphicProgrammingLanguage.Commands.Circle.Radius">
+            <summary>
+            Gets the radius value from the command arguments.
+            </summary>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.Commands.Circle.#ctor(GraphicProgrammingLanguage.Model.CommandInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GraphicProgrammingLanguage.Commands.Circle"/> class.
+            </summary>
+            <param name="commandInfo">The command information containing arguments.</param>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.Commands.Circle.Execute(System.Windows.Forms.PictureBox,DrawingPosition)">
+            <summary>
+            Executes the Circle command, drawing circles on the canvas.
+            </summary>
+            <param name="pictureBox">The PictureBox where drawing takes place.</param>
+            <param name="drawingPosition">The current drawing position.</param>
+            <returns>True if the command execution is successful; otherwise, false.</returns>
+        </member>
         <member name="T:GraphicProgrammingLanguage.Commands.Clear">
             <summary>
             Enables the functionality to clear the canvas of any drawings
             </summary>
         </member>
+        <member name="P:GraphicProgrammingLanguage.Commands.Clear.ExpectedArgumentsCount">
+            <summary>
+            Gets the expected number of arguments for the Clear command.
+            </summary>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.Commands.Clear.#ctor(GraphicProgrammingLanguage.Model.CommandInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GraphicProgrammingLanguage.Commands.Clear"/> class.
+            </summary>
+            <param name="commandInfo">The command information (unused for Clear).</param>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.Commands.Clear.Execute(System.Windows.Forms.PictureBox,DrawingPosition)">
+            <summary>
+            Executes the Clear command, clearing the canvas of any drawings.
+            </summary>
+            <param name="pictureBox">The PictureBox where drawing takes place.</param>
+            <param name="drawingPosition">The current drawing position (unused for Clear).</param>
+            <returns>True if the command execution is successful; otherwise, false.</returns>
+        </member>
         <member name="T:GraphicProgrammingLanguage.Commands.Drawto">
             <summary>
             Enables the ability to draw lines from one place to another on the canvas
             </summary>
+        </member>
+        <member name="P:GraphicProgrammingLanguage.Commands.Drawto.ExpectedArgumentsCount">
+            <summary>
+            Gets the expected number of arguments for the Drawto command.
+            </summary>
+        </member>
+        <member name="P:GraphicProgrammingLanguage.Commands.Drawto.XTarget">
+            <summary>
+            Gets the X-coordinate target from the command arguments.
+            </summary>
+        </member>
+        <member name="P:GraphicProgrammingLanguage.Commands.Drawto.YTarget">
+            <summary>
+            Gets the Y-coordinate target from the command arguments.
+            </summary>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.Commands.Drawto.#ctor(GraphicProgrammingLanguage.Model.CommandInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GraphicProgrammingLanguage.Commands.Drawto"/> class.
+            </summary>
+            <param name="commandInfo">The command information containing arguments.</param>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.Commands.Drawto.Execute(System.Windows.Forms.PictureBox,DrawingPosition)">
+            <summary>
+            Executes the Drawto command, drawing lines from one place to another on the canvas.
+            </summary>
+            <param name="pictureBox">The PictureBox where drawing takes place.</param>
+            <param name="drawingPosition">The current drawing position.</param>
+            <returns>True if the command execution is successful; otherwise, false.</returns>
+        </member>
+        <member name="T:GraphicProgrammingLanguage.Commands.Fill">
+            <summary>
+            Enables the ability to toggle filling when drawing shapes on the canvas.
+            </summary>
+            
+        </member>
+        <member name="P:GraphicProgrammingLanguage.Commands.Fill.ExpectedArgumentsCount">
+            <summary>
+            Gets the expected number of arguments for the Fill command.
+            </summary>
+        </member>
+        <member name="P:GraphicProgrammingLanguage.Commands.Fill.IsOn">
+            <summary>
+            Gets whether filling is turned on or off from the command arguments (1, 0, True, False).
+            </summary>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.Commands.Fill.#ctor(GraphicProgrammingLanguage.Model.CommandInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GraphicProgrammingLanguage.Commands.Fill"/> class.
+            </summary>
+            <param name="commandInfo">The command information containing arguments.</param>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.Commands.Fill.Execute(System.Windows.Forms.PictureBox,DrawingPosition)">
+            <summary>
+            Executes the Fill command, toggling the fill option when drawing shapes on the canvas.
+            </summary>
+            <param name="pictureBox">The PictureBox where drawing takes place.</param>
+            <param name="drawingPosition">The current drawing position.</param>
+            <returns>True if the command execution is successful; otherwise, false.</returns>
+        </member>
+        <member name="T:GraphicProgrammingLanguage.Commands.IfCondition">
+            <summary>
+            Represents and enables a conditional command that executes different sets of commands based on a specified condition.
+            </summary>
+        </member>
+        <member name="P:GraphicProgrammingLanguage.Commands.IfCondition.ExpectedArgumentsCount">
+            <summary>
+            Gets the expected number of arguments for the IfCondition command.
+            </summary>
+        </member>
+        <member name="P:GraphicProgrammingLanguage.Commands.IfCondition.Condition">
+            <summary>
+            Gets the condition expression from the command arguments.
+            </summary>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.Commands.IfCondition.#ctor(GraphicProgrammingLanguage.Model.CommandInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GraphicProgrammingLanguage.Commands.IfCondition"/> class.
+            </summary>
+            <param name="commandInfo">The command information containing arguments.</param>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.Commands.IfCondition.IsValid">
+            <summary>
+            Checks if the IfCondition command is valid by ensuring it has the expected number of arguments.
+            </summary>
+            <returns>True if the command is valid; otherwise, false.</returns>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.Commands.IfCondition.Execute(System.Windows.Forms.PictureBox,DrawingPosition)">
+            <summary>
+            Executes the IfCondition command, evaluating the condition expression and executing the appropriate set of commands.
+            </summary>
+            <param name="pictureBox">The PictureBox where drawing takes place.</param>
+            <param name="drawingPosition">The current drawing position.</param>
+            <returns>True if the command execution is successful; otherwise, false.</returns>
         </member>
         <member name="T:GraphicProgrammingLanguage.Commands.Moveto">
             <summary>

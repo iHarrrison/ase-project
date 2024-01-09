@@ -10,7 +10,7 @@ public class Reset : AbstractGPLCommand
 {
     public override int ExpectedArgumentsCount => 0;
 
-    public Reset(params object[] _) { }
+    public Reset(CommandInfo commandInfo) : base(commandInfo) { }
 
     public override bool Execute(PictureBox pictureBox, DrawingPosition drawingPosition)
     {

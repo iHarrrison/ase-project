@@ -22,7 +22,7 @@ public class Fill : AbstractGPLCommand
     /// Initializes a new instance of the <see cref="Fill"/> class.
     /// </summary>
     /// <param name="commandInfo">The command information containing arguments.</param>
-    public Fill(CommandInfo commandInfo) => Arguments = new[] { commandInfo.Arguments };
+    public Fill(CommandInfo commandInfo) : base(commandInfo) { }
 
     /// <summary>
     /// Executes the Fill command, toggling the fill option when drawing shapes on the canvas.

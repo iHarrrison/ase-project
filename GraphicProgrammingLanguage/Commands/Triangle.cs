@@ -8,14 +8,14 @@ using Model;
 public class Triangle : AbstractGPLCommand
 {
     public override int ExpectedArgumentsCount => 1;
-
-    public Triangle(CommandInfo commandInfo) => Arguments = new[] { commandInfo.Arguments };
+    private string SideLength => Arguments[0];
+    public Triangle(CommandInfo commandInfo) : base(commandInfo) { }
 
     public override bool Execute(PictureBox pictureBox, DrawingPosition drawingPosition)
     {
       
 
-        if (!int.TryParse(Arguments[0], out int sideLength))
+        if (!int.TryParse(SideLength, out int sideLength))
         {
             return false;
         }

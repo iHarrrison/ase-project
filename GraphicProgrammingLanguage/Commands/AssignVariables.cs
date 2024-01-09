@@ -1,5 +1,4 @@
-﻿using System.Reflection;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 
 namespace GraphicProgrammingLanguage.Commands;
 
@@ -13,18 +12,17 @@ public class AssignVariable : AbstractGPLCommand
 
     public override int ExpectedArgumentsCount => 1;
 
-    public AssignVariable(CommandInfo commandInfo) =>
-         Arguments = new Regex(AssignmentOpMatchPattern).Split(commandInfo.Arguments).Select(token => token.Trim()).ToArray();
+    public AssignVariable(CommandInfo commandInfo) : base(commandInfo)
+    {
+        Arguments = new Regex(AssignmentOpMatchPattern).Split(commandInfo.Arguments).Select(token => token.Trim()).ToArray();
+        if (!Parser.TryParseExpression(Arguments[ValueIndex], out int value))
+        {
+            return;
+        }
+        GlobalDataList.Instance.Variables[Arguments[VariableNameIndex]] = value;
+    }
 
     public override bool IsValid() => Arguments.Length > ExpectedArgumentsCount;
 
-    public override bool Execute(PictureBox pictureBox, DrawingPosition drawingPosition)
-    {
-        if (!Parser.TryParseExpression(Arguments[ValueIndex], out int value))
-        {
-            return false;
-        }
-        GlobalDataList.Instance.Variables[Arguments[VariableNameIndex]] = value;
-        return true;
-    }
+    public override bool Execute(PictureBox pictureBox, DrawingPosition drawingPosition) => true;
 }

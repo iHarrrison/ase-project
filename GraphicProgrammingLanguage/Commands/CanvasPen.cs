@@ -21,7 +21,7 @@ public class CanvasPen : AbstractGPLCommand
     /// Initializes a new instance of the <see cref="CanvasPen"/> class.
     /// </summary>
     /// <param name="commandInfo">The command information containing arguments.</param>
-    public CanvasPen(CommandInfo commandInfo) => Arguments = new[] { commandInfo.Arguments };
+    public CanvasPen(CommandInfo commandInfo) : base(commandInfo) { }
 
     /// <summary>
     /// Executes the CanvasPen command, setting the pen color for drawing on the canvas.

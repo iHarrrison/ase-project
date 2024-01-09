@@ -22,7 +22,7 @@ public static class CommandFactory
         { "if", typeof(IfCondition) },
     };
 
-    public static IGPLCommand[] CreateCommandListNew(CommandInfo[] commandInfos)
+    public static IGPLCommand[] CreateCommandList(CommandInfo[] commandInfos)
     {
         List<IGPLCommand> commands = new();
         try

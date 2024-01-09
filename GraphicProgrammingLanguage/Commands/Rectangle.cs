@@ -8,12 +8,14 @@ using Model;
 public class Rectangle : AbstractGPLCommand
 {
     public override int ExpectedArgumentsCount => 2;
+    private string Width => Arguments[0];
+    private string Height => Arguments[1];
 
-    public Rectangle(CommandInfo commandInfo) => Arguments = commandInfo.Arguments.Split(',', Constants.ArgumentSplitFlags);
+    public Rectangle(CommandInfo commandInfo) : base(commandInfo) { }
 
     public override bool Execute(PictureBox pictureBox, DrawingPosition drawingPosition)
     {
-        if (!(Parser.TryParseExpression(Arguments[0], out int width) && Parser.TryParseExpression(Arguments[1], out int height)))
+        if (!(Parser.TryParseExpression(Width, out int width) && Parser.TryParseExpression(Height, out int height)))
         {
             return false;
         }

@@ -21,7 +21,7 @@ public class Circle : AbstractGPLCommand
     /// Initializes a new instance of the <see cref="Circle"/> class.
     /// </summary>
     /// <param name="commandInfo">The command information containing arguments.</param>
-    public Circle(CommandInfo commandInfo) => Arguments = new[] { commandInfo.Arguments };
+    public Circle(CommandInfo commandInfo) : base(commandInfo) { }
 
     /// <summary>
     /// Executes the Circle command, drawing circles on the canvas.

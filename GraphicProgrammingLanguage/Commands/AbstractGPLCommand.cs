@@ -1,4 +1,5 @@
-﻿using GraphicProgrammingLanguage.Model;
+﻿using GraphicProgrammingLanguage.Factory;
+using GraphicProgrammingLanguage.Model;
 
 namespace GraphicProgrammingLanguage.Commands;
 
@@ -51,7 +52,7 @@ public abstract class AbstractGPLCommand : IGPLCommand
     /// Initializes a new instance of the <see cref="AbstractGPLCommand"/> class.
     /// </summary>
     /// <param name="args">The arguments for the command.</param>
-    protected AbstractGPLCommand(params object[] args) => Arguments = Array.Empty<string>();
+    protected AbstractGPLCommand(CommandInfo commandInfo) => Arguments = commandInfo.Arguments.Split(',');
 
     /// <summary>
     /// Checks whether the command is valid based on the provided arguments.
@@ -88,7 +89,7 @@ public abstract class AbstractGPLConditionalCommand : AbstractGPLCommand
     /// </summary>
     protected AbstractGPLConditionalCommand(CommandInfo commandInfo) : base(commandInfo)
     {
-        TrueCommandList = Array.Empty<IGPLCommand>();
-        FalseCommandList = Array.Empty<IGPLCommand>();
+        TrueCommandList = CommandFactory.CreateCommandList(commandInfo.TrueConditionCommandInfos.ToArray());
+        FalseCommandList = CommandFactory.CreateCommandList(commandInfo.FalseConditionCommandInfos.ToArray());
     }
 }
