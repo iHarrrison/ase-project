@@ -25,6 +25,7 @@ public static class CommandFactory
         { "var", typeof(AssignVariable) },
         { "if", typeof(IfCondition) },
         {"loop", typeof(Loop) },
+        //{"method", typeof(Method) },
     };
 
     /// <summary>
