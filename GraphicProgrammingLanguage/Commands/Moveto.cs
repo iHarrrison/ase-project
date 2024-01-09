@@ -7,16 +7,41 @@ using Model;
 /// </summary>
 public class Moveto : AbstractGPLCommand
 {
+    /// <summary>
+    /// Sets the marker size for giving some visual feedback as to where on the canvas you have moved to             .
+    /// </summary>
     private const int MarkerSize = 5;
+
+    /// <summary>
+    /// Gets the expected number of arguments for the Moveto command.
+    /// </summary>
     public override int ExpectedArgumentsCount => 2;
+
+    /// <summary>
+    /// Gets the X-coordinate value from the command arguments.
+    /// </summary>
     private string XPos => Arguments[0];
+
+    /// <summary>
+    /// Gets the Y-coordinate value from the command arguments.
+    /// </summary>
     private string YPos => Arguments[1];
 
     private int _xPosition;
     private int _yPosition;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="Moveto"/> class.
+    /// </summary>
+    /// <param name="commandInfo">The command information containing arguments.</param>
     public Moveto(CommandInfo commandInfo) : base(commandInfo) { }
 
+    /// <summary>
+    /// Executes the Moveto command, moving to a different drawing position on the canvas.
+    /// </summary>
+    /// <param name="pictureBox">The PictureBox where drawing takes place.</param>
+    /// <param name="drawingPosition">The current drawing position.</param>
+    /// <returns>True if the command execution is successful; otherwise, false.</returns>
     public override bool Execute(PictureBox pictureBox, DrawingPosition drawingPosition)
     {
         if (!int.TryParse(XPos, out int xPos) || !int.TryParse(YPos, out int yPos))
