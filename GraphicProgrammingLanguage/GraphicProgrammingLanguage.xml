@@ -36,10 +36,111 @@
              the contents of this method with the code editor.
             </summary>
         </member>
+        <member name="T:GraphicProgrammingLanguage.Commands.IGPLCommand">
+            <summary>
+            Represents the interface for a Graphic Programming Language (GPL) command.
+            </summary>
+        </member>
+        <member name="P:GraphicProgrammingLanguage.Commands.IGPLCommand.ExpectedArgumentsCount">
+            <summary>
+            Gets the expected number of arguments for the command.
+            </summary>
+        </member>
+        <member name="P:GraphicProgrammingLanguage.Commands.IGPLCommand.Arguments">
+            <summary>
+            Gets the arguments provided for the command.
+            </summary>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.Commands.IGPLCommand.IsValid">
+            <summary>
+            Checks whether the command is valid based on the provided arguments.
+            </summary>
+            <returns>True if the command is valid; otherwise, false.</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:GraphicProgrammingLanguage.Commands.IGPLCommand.Execute(System.Windows.Forms.PictureBox,DrawingPosition)" -->
+        <member name="T:GraphicProgrammingLanguage.Commands.AbstractGPLCommand">
+            <summary>
+            Represents an abstract implementation of the IGPLCommand interface.
+            </summary>
+        </member>
+        <member name="P:GraphicProgrammingLanguage.Commands.AbstractGPLCommand.ExpectedArgumentsCount">
+            <summary>
+            Gets the expected number of arguments for the command.
+            </summary>
+        </member>
+        <member name="P:GraphicProgrammingLanguage.Commands.AbstractGPLCommand.Arguments">
+            <summary>
+            Gets or sets the arguments provided for the command.
+            </summary>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.Commands.AbstractGPLCommand.#ctor(System.Object[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:GraphicProgrammingLanguage.Commands.AbstractGPLCommand"/> class.
+            </summary>
+            <param name="args">The arguments for the command.</param>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.Commands.AbstractGPLCommand.IsValid">
+            <summary>
+            Checks whether the command is valid based on the provided arguments.
+            </summary>
+            <returns>True if the command is valid; otherwise, false.</returns>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.Commands.AbstractGPLCommand.Execute(System.Windows.Forms.PictureBox,DrawingPosition)">
+            <summary>
+            Executes the command.
+            </summary>
+            <param name="pictureBox">The PictureBox where the command executes.</param>
+            <param name="drawingPosition">The current drawing position.</param>
+            <returns>True if the command execution is successful; otherwise, false.</returns>
+        </member>
+        <member name="T:GraphicProgrammingLanguage.Commands.AbstractGPLConditionalCommand">
+            <summary>
+            Represents an abstract implementation of a conditional GPL command.
+            </summary>
+        </member>
+        <member name="P:GraphicProgrammingLanguage.Commands.AbstractGPLConditionalCommand.TrueCommandList">
+            <summary>
+            Gets or sets the list of commands to execute if the condition is true.
+            </summary>
+        </member>
+        <member name="P:GraphicProgrammingLanguage.Commands.AbstractGPLConditionalCommand.FalseCommandList">
+            <summary>
+            Gets or sets the list of commands to execute if the condition is false.
+            </summary>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.Commands.AbstractGPLConditionalCommand.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:GraphicProgrammingLanguage.Commands.AbstractGPLConditionalCommand"/> class.
+            </summary>
+        </member>
         <member name="T:GraphicProgrammingLanguage.Commands.CanvasPen">
             <summary>
             Handles commands for the pen color for drawing on the canvas
             </summary>
+        </member>
+        <member name="P:GraphicProgrammingLanguage.Commands.CanvasPen.ExpectedArgumentsCount">
+            <summary>
+            Gets the expected number of arguments for the CanvasPen command.
+            </summary>
+        </member>
+        <member name="P:GraphicProgrammingLanguage.Commands.CanvasPen.Colour">
+            <summary>
+            Gets the color value from the command arguments.
+            </summary>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.Commands.CanvasPen.#ctor(GraphicProgrammingLanguage.Model.CommandInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GraphicProgrammingLanguage.Commands.CanvasPen"/> class.
+            </summary>
+            <param name="commandInfo">The command information containing arguments.</param>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.Commands.CanvasPen.Execute(System.Windows.Forms.PictureBox,DrawingPosition)">
+            <summary>
+            Executes the CanvasPen command, setting the pen color for drawing on the canvas.
+            </summary>
+            <param name="pictureBox">The PictureBox where drawing takes place.</param>
+            <param name="drawingPosition">The current drawing position.</param>
+            <returns>True if the command is executed successfully; otherwise, false.</returns>
         </member>
         <member name="T:GraphicProgrammingLanguage.Commands.Circle">
             <summary>
