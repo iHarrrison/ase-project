@@ -44,7 +44,7 @@ public class Moveto : AbstractGPLCommand
     /// <returns>True if the command execution is successful; otherwise, false.</returns>
     public override bool Execute(PictureBox pictureBox, DrawingPosition drawingPosition)
     {
-        if (!int.TryParse(XPos, out int xPos) || !int.TryParse(YPos, out int yPos))
+        if (!Parser.TryParseExpression(XPos, out int xPos) || !Parser.TryParseExpression(YPos, out int yPos))
         {
             return false;
         }

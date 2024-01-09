@@ -1,5 +1,8 @@
 ﻿namespace GraphicProgrammingLanguage.Model;
 
+using Utility;
+using Model;
+
 /// <summary>
 /// Represents a global data list containing variables used throughout Graphic Programming Language.
 /// </summary>
@@ -12,10 +15,9 @@ public class GlobalDataList
     /// </summary>
     public static GlobalDataList Instance => _instance;
 
-    /// <summary>
-    /// Gets a dictionary containing variable names and their corresponding values.
-    /// </summary>
-    public Dictionary<string, int?> Variables { get; } = new();
+    public SortedDictionary<string, int> Variables { get; } = new(new DescendingKeyLengthComparer());
+    public SortedDictionary<string, string[]> Methods { get; } = new(new DescendingKeyLengthComparer());
+
 
     /// <summary>
     /// Static constructor to initialize the singleton instance.
@@ -26,4 +28,10 @@ public class GlobalDataList
     /// Private constructor to enforce the singleton pattern.
     /// </summary>
     private GlobalDataList() { }
+
+    public void ClearData()
+    {
+        Variables.Clear();
+        Methods.Clear();
+    }
 }

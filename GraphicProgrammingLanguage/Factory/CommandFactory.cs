@@ -1,6 +1,4 @@
-﻿using System.Reflection;
-
-namespace GraphicProgrammingLanguage.Factory;
+﻿namespace GraphicProgrammingLanguage.Factory;
 
 using Commands;
 using Model;
@@ -10,6 +8,9 @@ using Model;
 /// </summary>
 public static class CommandFactory
 {
+    // dictionary containing all the defined commands expected. They have to be 
+    // defined here in order to work (essentially, if the command keyword is entered
+    // it pairs up with the class.
     private static readonly Dictionary<string, Type> _commandTokenMap = new()
     {
         { "rectangle", typeof(Rectangle) },
@@ -23,6 +24,7 @@ public static class CommandFactory
         { "reset", typeof(Reset) },
         { "var", typeof(AssignVariable) },
         { "if", typeof(IfCondition) },
+        {"loop", typeof(Loop) },
     };
 
     /// <summary>
@@ -38,9 +40,15 @@ public static class CommandFactory
         {
             foreach (CommandInfo commandInfo in commandInfos)
             {
-                if (!_commandTokenMap.TryGetValue(commandInfo.Command.ToLower(), out Type? commandType))
+                string commandName = commandInfo.Command.ToLower();
+                if (!_commandTokenMap.TryGetValue(commandName, out Type? commandType))
                 {
-                    MessageBox.Show($"Error with entered command {commandInfo.Command}", "Command not found!");
+                    if (GlobalDataList.Instance.Variables.ContainsKey(commandName))
+                    {
+                        commands.Add(new ReassignVariable(commandInfo));
+                        continue;
+                    }
+                    MessageBox.Show($"Command Error {commandInfo.Command}", "Command not found");
                     return Array.Empty<IGPLCommand>();
                 }
                 if ((IGPLCommand?)Activator.CreateInstance(commandType, commandInfo) is { } instancedCommand &&

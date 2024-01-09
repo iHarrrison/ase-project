@@ -299,19 +299,198 @@
             Enables the ability to move to a different drawing position on the canvas
             </summary>
         </member>
+        <member name="F:GraphicProgrammingLanguage.Commands.Moveto.MarkerSize">
+            <summary>
+            Sets the marker size for giving some visual feedback as to where on the canvas you have moved to             .
+            </summary>
+        </member>
+        <member name="P:GraphicProgrammingLanguage.Commands.Moveto.ExpectedArgumentsCount">
+            <summary>
+            Gets the expected number of arguments for the Moveto command.
+            </summary>
+        </member>
+        <member name="P:GraphicProgrammingLanguage.Commands.Moveto.XPos">
+            <summary>
+            Gets the X-coordinate value from the command arguments.
+            </summary>
+        </member>
+        <member name="P:GraphicProgrammingLanguage.Commands.Moveto.YPos">
+            <summary>
+            Gets the Y-coordinate value from the command arguments.
+            </summary>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.Commands.Moveto.#ctor(GraphicProgrammingLanguage.Model.CommandInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GraphicProgrammingLanguage.Commands.Moveto"/> class.
+            </summary>
+            <param name="commandInfo">The command information containing arguments.</param>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.Commands.Moveto.Execute(System.Windows.Forms.PictureBox,DrawingPosition)">
+            <summary>
+            Executes the Moveto command, moving to a different drawing position on the canvas.
+            </summary>
+            <param name="pictureBox">The PictureBox where drawing takes place.</param>
+            <param name="drawingPosition">The current drawing position.</param>
+            <returns>True if the command execution is successful; otherwise, false.</returns>
+        </member>
         <member name="T:GraphicProgrammingLanguage.Commands.Rectangle">
             <summary>
             Enables the ability to draw rectangles on the canvas
             </summary>
+        </member>
+        <member name="P:GraphicProgrammingLanguage.Commands.Rectangle.ExpectedArgumentsCount">
+            <summary>
+            Gets the expected number of arguments for the Rectangle command.
+            </summary>
+        </member>
+        <member name="P:GraphicProgrammingLanguage.Commands.Rectangle.Width">
+            <summary>
+            Gets the width value from the command arguments.
+            </summary>
+        </member>
+        <member name="P:GraphicProgrammingLanguage.Commands.Rectangle.Height">
+            <summary>
+            Gets the height value from the command arguments.
+            </summary>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.Commands.Rectangle.#ctor(GraphicProgrammingLanguage.Model.CommandInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GraphicProgrammingLanguage.Commands.Rectangle"/> class.
+            </summary>
+            <param name="commandInfo">The command information containing arguments.</param>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.Commands.Rectangle.Execute(System.Windows.Forms.PictureBox,DrawingPosition)">
+            <summary>
+            Executes the Rectangle command, drawing rectangles on the canvas.
+            </summary>
+            <param name="pictureBox">The PictureBox where drawing takes place.</param>
+            <param name="drawingPosition">The current drawing position.</param>
+            <returns>True if the command execution is successful; otherwise, false.</returns>
         </member>
         <member name="T:GraphicProgrammingLanguage.Commands.Reset">
             <summary>
             Enables the ability to reset the drawing position
             </summary>
         </member>
+        <member name="P:GraphicProgrammingLanguage.Commands.Reset.ExpectedArgumentsCount">
+            <summary>
+            Gets the expected number of arguments for the Reset command.
+            </summary>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.Commands.Reset.#ctor(GraphicProgrammingLanguage.Model.CommandInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GraphicProgrammingLanguage.Commands.Reset"/> class.
+            </summary>
+            <param name="commandInfo">The command information containing arguments.</param>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.Commands.Reset.Execute(System.Windows.Forms.PictureBox,DrawingPosition)">
+            <summary>
+            Executes the Reset command, resetting the drawing position to (0, 0).
+            </summary>
+            <param name="pictureBox">The PictureBox where drawing takes place.</param>
+            <param name="drawingPosition">The current drawing position.</param>
+            <returns>True if the command execution is successful; otherwise, false.</returns>
+        </member>
         <member name="T:GraphicProgrammingLanguage.Commands.Triangle">
             <summary>
             Enables the ability to draw triangles on the canvas
+            </summary>
+        </member>
+        <member name="P:GraphicProgrammingLanguage.Commands.Triangle.ExpectedArgumentsCount">
+            <summary>
+            Gets the expected number of arguments for the Triangle command.
+            </summary>
+        </member>
+        <member name="P:GraphicProgrammingLanguage.Commands.Triangle.SideLength">
+            <summary>
+            Gets the side length value from the command arguments.
+            </summary>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.Commands.Triangle.#ctor(GraphicProgrammingLanguage.Model.CommandInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GraphicProgrammingLanguage.Commands.Triangle"/> class.
+            </summary>
+            <param name="commandInfo">The command information containing arguments.</param>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.Commands.Triangle.Execute(System.Windows.Forms.PictureBox,DrawingPosition)">
+            <summary>
+            Executes the Triangle command, drawing triangles on the canvas.
+            </summary>
+            <param name="pictureBox">The PictureBox where drawing takes place.</param>
+            <param name="drawingPosition">The current drawing position.</param>
+            <returns>True if the command execution is successful; otherwise, false.</returns>
+        </member>
+        <member name="T:GraphicProgrammingLanguage.Factory.CommandFactory">
+            <summary>
+            Factory class responsible for creating instances of commands based on provided command information.
+            </summary>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.Factory.CommandFactory.CreateCommandList(GraphicProgrammingLanguage.Model.CommandInfo[])">
+            <summary>
+            Creates a list of commands based on an array of command information.
+            </summary>
+            <param name="commandInfos">Array of command information.</param>
+            <returns>An array of instantiated GPL commands.</returns>
+        </member>
+        <member name="T:GraphicProgrammingLanguage.Model.CommandInfo">
+            <summary>
+            Represents information about a given command.
+            </summary>
+        </member>
+        <member name="P:GraphicProgrammingLanguage.Model.CommandInfo.Command">
+            <summary>
+            Gets or sets the command keyword.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:GraphicProgrammingLanguage.Model.CommandInfo.Arguments" -->
+        <member name="P:GraphicProgrammingLanguage.Model.CommandInfo.TrueConditionCommandInfos">
+            <summary>
+            Gets or sets the list of command information for the true condition of a conditional command.
+            </summary>
+        </member>
+        <member name="P:GraphicProgrammingLanguage.Model.CommandInfo.FalseConditionCommandInfos">
+            <summary>
+            Gets or sets the list of command information for the false condition of a conditional command.
+            </summary>
+        </member>
+        <member name="T:GraphicProgrammingLanguage.Model.Constants">
+            <summary>
+            Contains constant values used throughout GraphicProgrammingLanguage.
+            </summary>
+        </member>
+        <member name="F:GraphicProgrammingLanguage.Model.Constants.NewLine">
+            <summary>
+            Represents the newline character sequence.
+            </summary>
+        </member>
+        <member name="F:GraphicProgrammingLanguage.Model.Constants.ArgumentSplitFlags">
+            <summary>
+            Represents the split options used when splitting arguments (to keep it tidy).
+            </summary>
+        </member>
+        <member name="F:GraphicProgrammingLanguage.Model.Constants.ReservedNames">
+            <summary>
+            Represents an array of reserved operators that are used throughout.
+            </summary>
+        </member>
+        <member name="T:GraphicProgrammingLanguage.Model.GlobalDataList">
+            <summary>
+            Represents a global data list containing variables used throughout Graphic Programming Language.
+            </summary>
+        </member>
+        <member name="P:GraphicProgrammingLanguage.Model.GlobalDataList.Instance">
+            <summary>
+            Gets the singleton instance of the <see cref="T:GraphicProgrammingLanguage.Model.GlobalDataList"/>.
+            </summary>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.Model.GlobalDataList.#cctor">
+            <summary>
+            Static constructor to initialize the singleton instance.
+            </summary>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.Model.GlobalDataList.#ctor">
+            <summary>
+            Private constructor to enforce the singleton pattern.
             </summary>
         </member>
         <member name="M:GraphicProgrammingLanguage.Program.Main">

@@ -1,81 +1,92 @@
 ﻿using System.Data;
+using System.Text.RegularExpressions;
 
 namespace GraphicProgrammingLanguage;
 
 using Model;
-using System.Text.RegularExpressions;
 
 public static class Parser
 {
-    // Sets up the conditional keywords, along with REGex to go over and find the operators
     private const string AdjacentLogicalOperatorPattern = @"(.?(1|0)(?= and| or))|((?<=and |or |not ).?(1|0))";
     private const string StartIfBlockToken = "if";
-    private const string StartElseBlockTokens = "else";
+    private const string StartElseBlockToken = "else";
     private const string EndIfBlockToken = "endif";
+    private const string StartLoopBlockToken = "loop";
+    private const string EndLoopBlockToken = "endloop";
+
+    private static int _lineIndex;
+
     public static CommandInfo[] Parse(string input)
     {
         List<CommandInfo> result = new();
         string[] lines = input.Split(Constants.NewLine, Constants.ArgumentSplitFlags);
-        int lineIndex = 0;
-        while (lineIndex < lines.Length)
+        _lineIndex = 0;
+        while (_lineIndex < lines.Length)
         {
-            string line = lines[lineIndex];
-            result.Add(line.StartsWith(StartIfBlockToken) ? ParseIfBlock(lines, ref lineIndex) : ParseLine(lines, ref lineIndex));
+            string line = lines[_lineIndex];
+            if (line.StartsWith(StartIfBlockToken))
+            {
+                result.Add(ParseConditionalBlock(lines));
+            }
+            else if (line.StartsWith(StartLoopBlockToken))
+            {
+                result.Add(ParseConditionalBlock(lines));
+            }
+            else
+            {
+                result.Add(ParseLine(lines));
+            }
         }
         return result.ToArray();
     }
 
-    private static CommandInfo ParseLine(IReadOnlyList<string> lines, ref int lineIndex)
+    private static CommandInfo ParseLine(IReadOnlyList<string> lines)
     {
-        string line = lines[lineIndex++];
-        if (line.StartsWith($"{StartElseBlockTokens} "))
+        string line = lines[_lineIndex++];
+        if (line.StartsWith($"{StartElseBlockToken} "))
         {
-            line = line.Remove(0, StartElseBlockTokens.Length).Trim();
+            line = line.Remove(0, StartElseBlockToken.Length).Trim();
         }
         string command = line.Split(' ', Constants.ArgumentSplitFlags)[0];
         return new CommandInfo { Command = command, Arguments = line[command.Length..].Trim() };
     }
 
-    private static CommandInfo ParseIfBlock(IReadOnlyList<string> lines, ref int lineIndex)
+    private static CommandInfo ParseConditionalBlock(IReadOnlyList<string> lines)
     {
-        CommandInfo ifCommandInfo = ParseLine(lines, ref lineIndex);
         bool commandBranch = true;
-        while (lineIndex < lines.Count)
+        CommandInfo commandInfo = ParseLine(lines);
+        while (_lineIndex < lines.Count)
         {
-            string line = lines[lineIndex];
-            if (line.StartsWith(StartElseBlockTokens))
+            string line = lines[_lineIndex];
+            if (line.StartsWith(EndIfBlockToken) || line.StartsWith(EndLoopBlockToken))
             {
-                commandBranch = false;
-                if (line.Contains(StartIfBlockToken))
-                {
-                    ifCommandInfo.FalseConditionCommandInfos.Add(ParseIfBlock(lines, ref lineIndex));
-                }
-                ++lineIndex;
-                continue;
-            }
-            if (line.StartsWith(EndIfBlockToken))
-            {
-                ++lineIndex;
+                ++_lineIndex;
                 break;
+            }
+            if (line.StartsWith(StartElseBlockToken))
+            {
+                ++_lineIndex;
+                commandBranch = false;
+                continue;
             }
             if (commandBranch)
             {
-                ifCommandInfo.TrueConditionCommandInfos.Add(ParseLine(lines, ref lineIndex));
+                commandInfo.TrueConditionCommandInfos.Add(line.StartsWith(StartIfBlockToken) ? ParseConditionalBlock(lines) : ParseLine(lines));
             }
             else
             {
-                ifCommandInfo.FalseConditionCommandInfos.Add(ParseLine(lines, ref lineIndex));
+                commandInfo.FalseConditionCommandInfos.Add(line.StartsWith(StartIfBlockToken) ? ParseConditionalBlock(lines) : ParseLine(lines));
             }
         }
-
-        return ifCommandInfo;
+        return commandInfo;
     }
 
     // Check 1: Constant assignment
     // Check 2: replace variable tokens with constants (i.e replace someVar with value in variable list)
     // Taken from: https://stackoverflow.com/a/11029886
     public static bool TryParseExpression(string expression, out int result) =>
-    int.TryParse(expression, out result) || TryParseComputedExpression(expression, out result);
+        int.TryParse(expression, out result) || TryParseComputedExpression(expression, out result);
+
     public static bool TryParseComputedExpression(string expression, out int result)
     {
         result = -1;
@@ -86,7 +97,6 @@ public static class Parser
             {
                 return true;
             }
-
             if (bool.TryParse(computedExpression, out bool boolResult))
             {
                 result = Convert.ToInt32(boolResult);
@@ -106,13 +116,14 @@ public static class Parser
         {
             int index = valueTokens.IndexOf(variableName, StringComparison.CurrentCulture);
             int nextCharIndex = index + variableName.Length;
-            while (index != -1 && (nextCharIndex >= valueTokens.Length || Constants.ReservedNames.Contains(valueTokens[nextCharIndex])))
+            while (index != -1 && (nextCharIndex <= valueTokens.Length || Constants.ReservedNames.Contains(valueTokens[nextCharIndex])))
             {
                 valueTokens = valueTokens.Remove(index, variableName.Length).Insert(index, $"{GlobalDataList.Instance.Variables[variableName]}");
                 index = valueTokens.IndexOf(variableName, StringComparison.CurrentCulture);
                 nextCharIndex = index + variableName.Length;
             }
         }
+
         return valueTokens;
     }
 
