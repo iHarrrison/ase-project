@@ -19,9 +19,9 @@ namespace UnitTestGraphicalProgrammingLanguage
         {
             // Given
             var pictureBox = new PictureBox();
-            var args = new String[] { "1" };
+            var commandInfo = new CommandInfo { Command = "fill", Arguments = "1" };
             var drawingPosition = new DrawingPosition(250, 250);
-            var fill = new Fill(args);
+            var fill = new Fill(commandInfo);
 
             // When
             bool executeResult = fill.Execute(pictureBox, drawingPosition);
@@ -38,9 +38,9 @@ namespace UnitTestGraphicalProgrammingLanguage
         {
             // Given
             var pictureBox = new PictureBox();
-            var args = new String[] { "I will neither confirm nor deny if fill is on" };
+            var commandInfo = new CommandInfo { Command = "fill", Arguments = "Who's Phil?" };
             var drawingPosition = new DrawingPosition(250, 250);
-            var fill = new Fill(args);
+            var fill = new Fill(commandInfo);
 
             // When
             bool executeResult = fill.Execute(pictureBox, drawingPosition);

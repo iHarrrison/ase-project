@@ -22,9 +22,9 @@ namespace UnitTestGraphicalProgrammingLanguage
             // Given
             var pictureBox = new PictureBox();
             pictureBox.Image = new Bitmap(500, 500);
-            var args = new String[] { "200, 200" };
+            var commandInfo = new CommandInfo { Command = "moveto", Arguments = "50, 50" };
             var drawingPosition = new DrawingPosition(250, 250);
-            var moveTo = new Moveto(args);
+            var moveTo = new Moveto(commandInfo);
 
             // When
             bool executeResult = moveTo.Execute(pictureBox, drawingPosition);
@@ -43,9 +43,9 @@ namespace UnitTestGraphicalProgrammingLanguage
             // Given
             var pictureBox = new PictureBox();
             pictureBox.Image = new Bitmap(500, 500);
-            var args = new String[] { "No, Not a number" };
+            var commandInfo = new CommandInfo{ Command = "moveto", Arguments = "0, valid argument" };
             var drawingPosition = new DrawingPosition(250, 250);
-            var moveTo = new Moveto(args);
+            var moveTo = new Moveto(commandInfo);
 
             // When
             bool executeResult = moveTo.Execute(pictureBox, drawingPosition);

@@ -113,6 +113,36 @@
             Initializes a new instance of the <see cref="T:GraphicProgrammingLanguage.Commands.AbstractGPLConditionalCommand"/> class.
             </summary>
         </member>
+        <member name="T:GraphicProgrammingLanguage.Commands.AssignVariable">
+            <summary>
+            Represents a command to assign a value to a variable in the Graphic Programming Language.
+            </summary>
+        </member>
+        <member name="P:GraphicProgrammingLanguage.Commands.AssignVariable.ExpectedArgumentsCount">
+            <summary>
+            Gets the expected number of arguments for the AssignVariable command.
+            </summary>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.Commands.AssignVariable.#ctor(GraphicProgrammingLanguage.Model.CommandInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GraphicProgrammingLanguage.Commands.AssignVariable"/> class.
+            </summary>
+            <param name="commandInfo">The command information containing arguments.</param>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.Commands.AssignVariable.IsValid">
+            <summary>
+            Checks whether the AssignVariable command is valid.
+            </summary>
+            <returns>True if the command is valid; otherwise, false.</returns>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.Commands.AssignVariable.Execute(System.Windows.Forms.PictureBox,DrawingPosition)">
+            <summary>
+            Executes the AssignVariable command.
+            </summary>
+            <param name="pictureBox">The PictureBox where drawing takes place.</param>
+            <param name="drawingPosition">The current drawing position.</param>
+            <returns>True if the command execution is successful; otherwise, false.</returns>
+        </member>
         <member name="T:GraphicProgrammingLanguage.Commands.CanvasPen">
             <summary>
             Handles commands for the pen color for drawing on the canvas
@@ -294,6 +324,35 @@
             <param name="drawingPosition">The current drawing position.</param>
             <returns>True if the command execution is successful; otherwise, false.</returns>
         </member>
+        <member name="T:GraphicProgrammingLanguage.Commands.Loop">
+            <summary>
+            Represents a conditional loop command.
+            </summary>
+        </member>
+        <member name="P:GraphicProgrammingLanguage.Commands.Loop.ExpectedArgumentsCount">
+            <summary>
+            Gets the expected number of arguments for the Loop command.
+            </summary>
+        </member>
+        <member name="P:GraphicProgrammingLanguage.Commands.Loop.Condition">
+            <summary>
+            Gets the condition expression for the loop.
+            </summary>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.Commands.Loop.#ctor(GraphicProgrammingLanguage.Model.CommandInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GraphicProgrammingLanguage.Commands.Loop"/> class.
+            </summary>
+            <param name="commandInfo">The command information containing arguments.</param>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.Commands.Loop.Execute(System.Windows.Forms.PictureBox,DrawingPosition)">
+            <summary>
+            Executes the Loop command, repeating the enclosed commands based on the specified condition.
+            </summary>
+            <param name="pictureBox">The PictureBox where drawing takes place.</param>
+            <param name="drawingPosition">The current drawing position.</param>
+            <returns>True if the loop executes successfully; otherwise, false.</returns>
+        </member>
         <member name="T:GraphicProgrammingLanguage.Commands.Moveto">
             <summary>
             Enables the ability to move to a different drawing position on the canvas
@@ -328,6 +387,36 @@
         <member name="M:GraphicProgrammingLanguage.Commands.Moveto.Execute(System.Windows.Forms.PictureBox,DrawingPosition)">
             <summary>
             Executes the Moveto command, moving to a different drawing position on the canvas.
+            </summary>
+            <param name="pictureBox">The PictureBox where drawing takes place.</param>
+            <param name="drawingPosition">The current drawing position.</param>
+            <returns>True if the command execution is successful; otherwise, false.</returns>
+        </member>
+        <member name="T:GraphicProgrammingLanguage.Commands.ReassignVariable">
+            <summary>
+            Represents a command to reassign a value to a variable in the Graphic Programming Language (GPL) application.
+            </summary>
+        </member>
+        <member name="P:GraphicProgrammingLanguage.Commands.ReassignVariable.ExpectedArgumentsCount">
+            <summary>
+            Gets the expected number of arguments for the ReassignVariable command.
+            </summary>
+        </member>
+        <member name="P:GraphicProgrammingLanguage.Commands.ReassignVariable.VariableName">
+            <summary>
+            Gets the name of the variable to be reassigned.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:GraphicProgrammingLanguage.Commands.ReassignVariable.Expression" -->
+        <member name="M:GraphicProgrammingLanguage.Commands.ReassignVariable.#ctor(GraphicProgrammingLanguage.Model.CommandInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GraphicProgrammingLanguage.Commands.ReassignVariable"/> class.
+            </summary>
+            <param name="commandInfo">The command information containing arguments.</param>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.Commands.ReassignVariable.Execute(System.Windows.Forms.PictureBox,DrawingPosition)">
+            <summary>
+            Executes the ReassignVariable command, reassigning a value to a variable.
             </summary>
             <param name="pictureBox">The PictureBox where drawing takes place.</param>
             <param name="drawingPosition">The current drawing position.</param>

@@ -21,9 +21,9 @@ namespace UnitTestGraphicalProgrammingLanguage
             // Given
             var pictureBox = new PictureBox();
             pictureBox.Image = new Bitmap(500, 500);
-            var args = new String[] { "200, 200" };
             var drawingPosition = new DrawingPosition(250, 250);
-            var reset = new Reset();
+            var commandInfo = new CommandInfo { Command = "clear" };
+            var reset = new Reset(commandInfo);
 
             // When
             reset.Execute(pictureBox, drawingPosition);

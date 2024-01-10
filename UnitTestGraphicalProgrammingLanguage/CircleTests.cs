@@ -21,9 +21,9 @@ namespace UnitTestGraphicalProgrammingLanguage
             // Given
             var pictureBox = new PictureBox();
             pictureBox.Image = new Bitmap(500, 500);
-            var args = new String[] { "200" };
+            var commandInfo = new CommandInfo { Command = "circle", Arguments = "50" };
             var drawingPosition = new DrawingPosition(250, 250);
-            var circle = new Circle(args);
+            var circle = new Circle(commandInfo);
 
             // When
             bool executeResult = circle.Execute(pictureBox, drawingPosition);
@@ -41,9 +41,9 @@ namespace UnitTestGraphicalProgrammingLanguage
             // Given
             var pictureBox = new PictureBox();
             pictureBox.Image = new Bitmap(500, 500);
-            var args = new String[] { "This is not a number!" };
+            var commandInfo = new CommandInfo { Command = "circle", Arguments = "not a radius" };
             var drawingPosition = new DrawingPosition(250, 250);
-            var circle = new Circle(args);
+            var circle = new Circle(commandInfo);
 
             // When
             bool executeResult = circle.Execute(pictureBox, drawingPosition);

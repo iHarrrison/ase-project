@@ -13,7 +13,8 @@ namespace UnitTestGraphicalProgrammingLanguage
     public class TriangleTests
     {
         /// <summary>
-        /// Tests that when the triangle receives the correct commands, it executes on the canvas as expected
+        /// Tests that the triangle command execute function returns true when a
+        /// valid arguments is passed
         /// </summary>
         [TestMethod]
         public void Triangle_Execute_Pass()
@@ -21,9 +22,9 @@ namespace UnitTestGraphicalProgrammingLanguage
             // Given
             var pictureBox = new PictureBox();
             pictureBox.Image = new Bitmap(500, 500);
-            var args = new String[] { "200" };
+            var commandInfo = new CommandInfo { Command = "triangle", Arguments = "50" };
             var drawingPosition = new DrawingPosition(250, 250);
-            var triangle = new Triangle(args);
+            var triangle = new Triangle(commandInfo);
 
             // When
             bool executeResult = triangle.Execute(pictureBox, drawingPosition);
@@ -33,7 +34,8 @@ namespace UnitTestGraphicalProgrammingLanguage
         }
 
         /// <summary>
-        /// Tests that when the triangle does not receive the correct commands, it does not execute on the canvas
+        /// Tests that the triangle command execute function returns false when an
+        /// invalid argument is passed
         /// </summary>
         [TestMethod]
         public void Triangle_Execute_Fail()
@@ -41,9 +43,9 @@ namespace UnitTestGraphicalProgrammingLanguage
             // Given
             var pictureBox = new PictureBox();
             pictureBox.Image = new Bitmap(500, 500);
-            var args = new String[] { "This is not a number!" };
+            var commandInfo = new CommandInfo { Command = "triangle", Arguments = "nae triangles here" };
             var drawingPosition = new DrawingPosition(250, 250);
-            var triangle = new Triangle(args);
+            var triangle = new Triangle(commandInfo);
 
             // When
             bool executeResult = triangle.Execute(pictureBox, drawingPosition);
