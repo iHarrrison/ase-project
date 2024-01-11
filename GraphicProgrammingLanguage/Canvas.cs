@@ -74,7 +74,9 @@ public partial class Canvas : Form
     /// </summary>
     private void runButton_Click(object sender, EventArgs e)
     {
+        // Clears the global list, allowing for the same instance of program to rerun methods using the same name for method parameters. Otherwise key errors!
         GlobalDataList.Instance.ClearData();
+        // Gets all the commands and goes through them one-by one, calling their execute methods
         foreach (IGPLCommand command in CommandFactory.CreateCommandList(Parser.Parse(commandTextBox.Text)))
         {
             command.Execute(pictureBox, _drawingPosition);

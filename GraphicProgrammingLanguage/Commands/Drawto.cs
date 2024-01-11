@@ -36,7 +36,7 @@ public class Drawto : AbstractGPLCommand
     /// <returns>True if the command execution is successful; otherwise, false.</returns>
     public override bool Execute(PictureBox pictureBox, DrawingPosition drawingPosition)
     {
-        if (!int.TryParse(XTarget, out int xTarget) || !int.TryParse(YTarget, out int yTarget))
+        if (!(Parser.TryParseExpression(XTarget, out int xTarget) && Parser.TryParseExpression(YTarget, out int yTarget)))
         {
             return false;
         }

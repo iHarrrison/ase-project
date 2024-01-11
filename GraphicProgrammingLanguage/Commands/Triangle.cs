@@ -31,9 +31,8 @@ public class Triangle : AbstractGPLCommand
     /// <returns>True if the command execution is successful; otherwise, false.</returns>
     public override bool Execute(PictureBox pictureBox, DrawingPosition drawingPosition)
     {
-      
 
-        if (!int.TryParse(SideLength, out int sideLength))
+        if (!Parser.TryParseExpression(SideLength, out int sideLength))
         {
             return false;
         }

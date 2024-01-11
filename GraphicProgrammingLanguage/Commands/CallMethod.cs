@@ -2,8 +2,15 @@
 
 using Model;
 using Utility;
+
+/// <summary>
+/// Represents the functionality to call a defined method.
+/// </summary>
 public class CallMethod : AbstractGPLCommand
 {
+    /// <summary>
+    /// Gets the expected number of arguments for the CallMethod command.
+    /// </summary>
     public override int ExpectedArgumentsCount => TargetMethod.Arguments.Length - 1;
 
     private DefineMethod TargetMethod { get; }
@@ -11,12 +18,22 @@ public class CallMethod : AbstractGPLCommand
 
     private SortedDictionary<string, int> _methodArguments = new(new DescendingKeyLengthComparer());
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="CallMethod"/> class.
+    /// </summary>
+    /// <param name="commandInfo">The command information containing arguments.</param>
     public CallMethod(CommandInfo commandInfo) : base(commandInfo)
     {
         TargetMethod = GlobalDataList.Methods[commandInfo.Command];
         TrueCommandList = TargetMethod.TrueCommandList;
     }
 
+    /// <summary>
+    /// Executes the CallMethod command, calling the efined method and its specified arguments.
+    /// </summary>
+    /// <param name="pictureBox">The PictureBox where drawing takes place.</param>
+    /// <param name="drawingPosition">The current drawing position.</param>
+    /// <returns>True if the command execution is successful; otherwise, false.</returns>
     public override bool Execute(PictureBox pictureBox, DrawingPosition drawingPosition)
     {
         ParseMethodArguments();
@@ -34,6 +51,7 @@ public class CallMethod : AbstractGPLCommand
 
         return result;
     }
+
 
     private void ParseMethodArguments()
     {

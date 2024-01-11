@@ -62,6 +62,11 @@ public static class CommandFactory
         return commands.ToArray();
     }
 
+    /// <summary>
+    /// Attempts to instantiate commands.
+    /// </summary>
+    /// <param name="commandInfos">Array of command information.</param>
+    /// <returns>An array of instantiated GPL commands.</returns>
     private static bool TryInstantiateCommand(CommandInfo commandInfo, out IGPLCommand? command)
     {
         command = null;
