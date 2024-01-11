@@ -74,6 +74,7 @@ public partial class Canvas : Form
     /// </summary>
     private void runButton_Click(object sender, EventArgs e)
     {
+        GlobalDataList.Instance.ClearData();
         foreach (IGPLCommand command in CommandFactory.CreateCommandList(Parser.Parse(commandTextBox.Text)))
         {
             command.Execute(pictureBox, _drawingPosition);

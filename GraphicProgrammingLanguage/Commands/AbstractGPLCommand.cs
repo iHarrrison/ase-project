@@ -38,6 +38,7 @@ public interface IGPLCommand
 /// </summary>
 public abstract class AbstractGPLCommand : IGPLCommand
 {
+    public IGPLCommand[] TrueCommandList { get; protected set; }
     /// <summary>
     /// Gets the expected number of arguments for the command.
     /// </summary>

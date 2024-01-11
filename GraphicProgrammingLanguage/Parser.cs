@@ -8,13 +8,19 @@ using Model;
 public static class Parser
 {
     private const string AdjacentLogicalOperatorPattern = @"(.?(1|0)(?= and| or))|((?<=and |or |not ).?(1|0))";
+    // Conditonal Block Tokens
     private const string StartIfBlockToken = "if";
     private const string StartElseBlockToken = "else";
     private const string EndIfBlockToken = "endif";
+    // Loop Block Tokens
     private const string StartLoopBlockToken = "loop";
     private const string EndLoopBlockToken = "endloop";
+    // Method Block Tokens
+    private const string StartMethodBlockToken = "method";
+    private const string EndMethodBlockToken = "endmethod";
 
     private static int _lineIndex;
+    private static DataTable _dataTable = new();
 
     public static CommandInfo[] Parse(string input)
     {
@@ -24,11 +30,7 @@ public static class Parser
         while (_lineIndex < lines.Length)
         {
             string line = lines[_lineIndex];
-            if (line.StartsWith(StartIfBlockToken))
-            {
-                result.Add(ParseConditionalBlock(lines));
-            }
-            else if (line.StartsWith(StartLoopBlockToken))
+            if (line.StartsWith(StartIfBlockToken) || line.StartsWith(StartLoopBlockToken) || line.StartsWith(StartMethodBlockToken))
             {
                 result.Add(ParseConditionalBlock(lines));
             }
@@ -55,10 +57,11 @@ public static class Parser
     {
         bool commandBranch = true;
         CommandInfo commandInfo = ParseLine(lines);
+
         while (_lineIndex < lines.Count)
         {
             string line = lines[_lineIndex];
-            if (line.StartsWith(EndIfBlockToken) || line.StartsWith(EndLoopBlockToken))
+            if (line.StartsWith(EndIfBlockToken) || line.StartsWith(EndLoopBlockToken) || line.StartsWith(EndMethodBlockToken))
             {
                 ++_lineIndex;
                 break;
@@ -92,7 +95,7 @@ public static class Parser
         result = -1;
         try
         {
-            string computedExpression = TruncateDecimalToInt($"{new DataTable().Compute(ConvertToSQLOperands(FindReplaceVariableNames(expression)), "")}");
+            string computedExpression = TruncateDecimalToInt($"{_dataTable.Compute(ConvertToSQLOperands(FindReplaceVariableNames(expression)), "")}");
             if (int.TryParse(computedExpression, out result))
             {
                 return true;
@@ -103,9 +106,11 @@ public static class Parser
                 return true;
             }
         }
+
+        // Error - I need to look at better way of doing this
         catch (SyntaxErrorException syntaxError)
         {
-            MessageBox.Show(syntaxError.Message, "An Error has Occurred"); 
+            MessageBox.Show(syntaxError.Message, "A Syntax Error has occurred, please double check your syntax"); 
         }
         return false;
     }

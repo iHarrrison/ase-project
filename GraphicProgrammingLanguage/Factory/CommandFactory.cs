@@ -25,7 +25,7 @@ public static class CommandFactory
         { "var", typeof(AssignVariable) },
         { "if", typeof(IfCondition) },
         {"loop", typeof(Loop) },
-        //{"method", typeof(Method) },
+        {"method", typeof(DefineMethod) },
     };
 
     /// <summary>
@@ -41,34 +41,61 @@ public static class CommandFactory
         {
             foreach (CommandInfo commandInfo in commandInfos)
             {
-                string commandName = commandInfo.Command.ToLower();
-                if (!_commandTokenMap.TryGetValue(commandName, out Type? commandType))
+                if (!(TryInstantiateCommand(commandInfo, out IGPLCommand? instancedCommand) &&
+                    instancedCommand!.IsValid()))
                 {
-                    if (GlobalDataList.Instance.Variables.ContainsKey(commandName))
-                    {
-                        commands.Add(new ReassignVariable(commandInfo));
-                        continue;
-                    }
-                    MessageBox.Show($"Command Error {commandInfo.Command}", "Command not found");
-                    return Array.Empty<IGPLCommand>();
+                    continue;
                 }
-                if ((IGPLCommand?)Activator.CreateInstance(commandType, commandInfo) is { } instancedCommand &&
-                    instancedCommand.IsValid())
+
+                if (instancedCommand is not DefineMethod)
                 {
                     commands.Add(instancedCommand);
                 }
-                else
-                {
-                    // Error Handling
-                    MessageBox.Show($"Command {commandInfo.Command} fell over", "Command creation error!");
-                }
             }
         }
+
         catch
         {
             // TODO: Catch if something goes very wrong.
         }
 
         return commands.ToArray();
+    }
+
+    private static bool TryInstantiateCommand(CommandInfo commandInfo, out IGPLCommand? command)
+    {
+        command = null;
+        string commandName = commandInfo.Command.ToLower();
+
+        if (_commandTokenMap.TryGetValue(commandName, out Type? commandType))
+        {
+            if ((IGPLCommand?)Activator.CreateInstance(commandType, commandInfo) is { } instancedCommand)
+            {
+                command = instancedCommand;
+                return true;
+            }
+
+            // Error - I need to look at better way of doing this
+            MessageBox.Show($"Command has fallen over: {commandInfo.Command}", "Command creation error!");
+            return false;
+        }
+
+        if (GlobalDataList.Instance.Variables.ContainsKey(commandName))
+        {
+            command = new ReassignVariable(commandInfo);
+            return true;
+        }
+
+        string methodName = DefineMethod.GetMethodNameFromDeclaration(commandName);
+        if (GlobalDataList.Instance.Methods.ContainsKey(methodName))
+        {
+            commandInfo.Command = methodName;
+            commandInfo.Arguments = string.Join(',', DefineMethod.GetMethodParametersFromDeclaration(commandName));
+            command = new CallMethod(commandInfo);
+            return true;
+        }
+        // Error - I need to look at better way of doing this
+        MessageBox.Show($"The following Command is not valid: {commandInfo.Command}", "Command not found!");
+        return false;
     }
 }

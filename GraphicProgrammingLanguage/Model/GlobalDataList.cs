@@ -2,6 +2,7 @@
 
 using Utility;
 using Model;
+using GraphicProgrammingLanguage.Commands;
 
 /// <summary>
 /// Represents a global data list containing variables used throughout Graphic Programming Language.
@@ -16,7 +17,7 @@ public class GlobalDataList
     public static GlobalDataList Instance => _instance;
 
     public SortedDictionary<string, int> Variables { get; } = new(new DescendingKeyLengthComparer());
-    public SortedDictionary<string, string[]> Methods { get; } = new(new DescendingKeyLengthComparer());
+    public SortedDictionary<string, DefineMethod> Methods { get; } = new(new DescendingKeyLengthComparer());
 
 
     /// <summary>
