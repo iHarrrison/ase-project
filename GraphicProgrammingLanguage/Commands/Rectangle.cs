@@ -3,7 +3,7 @@
 using Model;
 
 /// <summary>
-/// Enables the ability to draw rectangles on the canvas
+/// Represents the functionality to draw rectangles on the canvas
 /// </summary>
 public class Rectangle : AbstractGPLCommand
 {

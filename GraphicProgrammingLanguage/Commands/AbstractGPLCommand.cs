@@ -4,7 +4,7 @@ using GraphicProgrammingLanguage.Model;
 namespace GraphicProgrammingLanguage.Commands;
 
 /// <summary>
-/// Represents the interface for a Graphic Programming Language (GPL) command.
+/// Represents the interface to be implemented by command classes.
 /// </summary>
 public interface IGPLCommand
 {

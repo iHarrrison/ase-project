@@ -3,7 +3,7 @@
 using Model;
 
 /// <summary>
-/// Enables the ability to draw triangles on the canvas
+/// Represents the functionality to draw triangles on the canvas
 /// </summary>
 public class Triangle : AbstractGPLCommand
 {

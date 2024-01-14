@@ -3,7 +3,7 @@
 using Model;
 
 /// <summary>
-/// Enables the functionality to clear the canvas of any drawings
+/// Represents the functionality to clear the canvas of any drawings.
 /// </summary>
 public class Clear : AbstractGPLCommand
 {

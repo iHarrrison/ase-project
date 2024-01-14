@@ -3,7 +3,7 @@
 using Model;
 
 /// <summary>
-/// Represents a command to reassign a value to a variable in the Graphic Programming Language (GPL) application.
+/// Represents the functionality to reassign a value to a variable.
 /// </summary>
 public class ReassignVariable : AbstractGPLCommand
 {
@@ -37,9 +37,12 @@ public class ReassignVariable : AbstractGPLCommand
     /// <returns>True if the command execution is successful; otherwise, false.</returns>
     public override bool Execute(PictureBox pictureBox, DrawingPosition drawingPosition)
     {
+        // retrieve the variables list
         var variables = GlobalDataList.Instance.Variables;
+        // try to parse the expression to get the new value
         if (Parser.TryParseExpression(Expression, out int result))
         {
+            // assign the new value to the variable 
             variables[VariableName] = result;
             return true;
         }

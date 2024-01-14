@@ -9,7 +9,7 @@ using Utility;
 public class CallMethod : AbstractGPLCommand
 {
     /// <summary>
-    /// Gets the expected number of arguments for the CallMethod command.
+    /// Gets the expected number of arguments for the CallMethod command - 1, to remove method name from args.
     /// </summary>
     public override int ExpectedArgumentsCount => TargetMethod.Arguments.Length - 1;
 
@@ -27,9 +27,9 @@ public class CallMethod : AbstractGPLCommand
         TargetMethod = GlobalDataList.Methods[commandInfo.Command];
         TrueCommandList = TargetMethod.TrueCommandList;
     }
-
+    
     /// <summary>
-    /// Executes the CallMethod command, calling the efined method and its specified arguments.
+    /// Executes the CallMethod command, calling the defined method and its specified arguments.
     /// </summary>
     /// <param name="pictureBox">The PictureBox where drawing takes place.</param>
     /// <param name="drawingPosition">The current drawing position.</param>
@@ -52,14 +52,19 @@ public class CallMethod : AbstractGPLCommand
         return result;
     }
 
-
+    /// <summary>
+    /// Parses the method arguments provided in the command and prepares them for method execution.
+    /// </summary>
     private void ParseMethodArguments()
     {
         for (var argIndex = 0; argIndex < Arguments.Length; ++argIndex)
         {
+            // retrieve the parameter name for the current argument
             var argument = TargetMethod.Arguments[argIndex + 1];
+            // try to parse the argument into an integer
             if (Parser.TryParseExpression(Arguments[argIndex], out int value))
             {
+                // store the parsed value in the dictionary, using the param name as the key
                 _methodArguments[argument] = value;
             }
         }

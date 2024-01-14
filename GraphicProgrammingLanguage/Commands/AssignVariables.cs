@@ -6,10 +6,12 @@ using Model;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 /// <summary>
-/// Represents a command to assign a value to a variable in the Graphic Programming Language.
+/// Represents the functionality to assign a value to a variable.
 /// </summary>
 public class AssignVariable : AbstractGPLCommand
 {
+    // This regex looks for the = operator for assigning a var,
+    // but does only if it is not part of the inequality operator. Pretty cool!
     private const string AssignmentOpMatchPattern = @"(?<!=)=(?!=)(?<!!=)";
     private const int VariableNameIndex = 0;
     private const int ValueIndex = 1;
