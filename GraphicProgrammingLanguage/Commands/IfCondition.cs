@@ -3,7 +3,7 @@
 using Model;
 
 /// <summary>
-/// Represents and enables a conditional command that executes different sets of commands based on a specified condition.
+/// Represents the functionality to write a conditional command that executes different sets of commands based on a specified condition.
 /// </summary>
 
 public class IfCondition : AbstractGPLConditionalCommand

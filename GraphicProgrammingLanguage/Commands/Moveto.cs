@@ -3,7 +3,7 @@
 using Model;
 
 /// <summary>
-/// Enables the ability to move to a different drawing position on the canvas
+/// Represents the functionality to move to a different drawing position on the canvas
 /// </summary>
 public class Moveto : AbstractGPLCommand
 {

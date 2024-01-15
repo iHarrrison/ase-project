@@ -3,7 +3,7 @@
 using Model;
 
 /// <summary>
-/// Enables the ability to draw lines from one place to another on the canvas
+/// Represents the functionality to draw lines from one place to another on the canvas
 /// </summary>
 public class Drawto : AbstractGPLCommand
 {

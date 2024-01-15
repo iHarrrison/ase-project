@@ -4,7 +4,7 @@ using Factory;
 using Model;
 
 /// <summary>
-/// Represents a conditional loop command.
+/// Represents and enables the functionality of a loop command.
 /// </summary>
 public class Loop : AbstractGPLConditionalCommand
 {

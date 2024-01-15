@@ -4,7 +4,7 @@ using Model;
 
 
 /// <summary>
-/// Enables the ability to reset the drawing position
+/// Represents the functionality to reset the drawing position
 /// </summary>
 public class Reset : AbstractGPLCommand
 {

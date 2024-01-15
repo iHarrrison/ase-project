@@ -4,12 +4,14 @@ using Model;
 using System.Text.RegularExpressions;
 
 /// <summary>
-/// Represents the functionality to defined a method - this is essentially the command of method.
+/// Represents the functionality to define a method.
 /// </summary>
 public class DefineMethod : AbstractGPLConditionalCommand
 {
+    // Regex pattern to capture the method name (text preceding an opening parenthesis)
     private const string MethodNamePattern = @".+?(?=\()";
 
+    // Regex pattern to capture the parameters for the method (text inside parentheses)
     private const string ParameterListPattern = @"(?<=\()(.*?)(?=\))";
 
     /// <summary>

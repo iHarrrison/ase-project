@@ -13,9 +13,7 @@ namespace UnitTestGraphicalProgrammingLanguage
     public class MovetoTests
     {
         /// <summary>
-        /// Tests that the moveto command works as expected via validating the canvas is not null after use - as it leaves
-        /// a small circle showing the user where abouts they are now located on the canvas
-        /// </summary>
+        /// Tests that the move to command returns a true execute bool if supplied with valid arguments
         [TestMethod]
         public void Moveto_Execute_Pass()
         {
@@ -34,8 +32,7 @@ namespace UnitTestGraphicalProgrammingLanguage
         }
 
         /// <summary>
-        /// Tests that if it fails, the canvas is still empty as the circle will not have been drawn to show the
-        /// user whereabouts they are on the canvas
+        /// Tests that the move to command returns a false execute bool if supplied with invalid arguments
         /// </summary>
         [TestMethod]
         public void Moveto_Execute_Fail()

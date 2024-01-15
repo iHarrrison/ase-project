@@ -3,7 +3,7 @@
 using Model;
 
 /// <summary>
-/// Enables the ability to toggle filling when drawing shapes on the canvas.
+/// Represents the functionality to toggle filling when drawing shapes on the canvas.
 /// </summary>
 /// 
 public class Fill : AbstractGPLCommand

@@ -3,7 +3,7 @@
 using Model;
 
 /// <summary>
-/// Enables the ability to draw circles on the canvas
+/// Represents the functionality to draw a circle.
 /// </summary>
 public class Circle : AbstractGPLCommand
 {
