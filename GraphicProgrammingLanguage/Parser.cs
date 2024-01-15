@@ -4,6 +4,7 @@ using System.Text.RegularExpressions;
 namespace GraphicProgrammingLanguage;
 
 using Model;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 /// <summary>
 /// Enables the parsing functionality via multiple methods.
@@ -29,34 +30,33 @@ public static class Parser
     private static DataTable _dataTable = new();
 
     /// <summary>
-    /// Parses the input string to extract command information.
+    /// Parses the input string to extract command information and figure out what to do with it.
     /// </summary>
     /// <param name="input">The input string containing commands.</param>
     /// <returns>An array of CommandInfo representing parsed commands.</returns>
     public static CommandInfo[] Parse(string input)
     {
+        // List to store parsed CommandInfo objects
         List<CommandInfo> result = new();
+       
+        // Split input into lines
         string[] lines = input.Split(Constants.NewLine, Constants.ArgumentSplitFlags);
+
+        // Reset line index to 0 so it parses from the first line
         _lineIndex = 0;
-        
-        // Loop through each line in the input string
+
+        // Parse each line and add the corresponding CommandInfo to the result list
         while (_lineIndex < lines.Length)
         {
+            // Get the current line
             string line = lines[_lineIndex];
-            
-            // Check if the line starts a conditional block, loop block, or method block
-            if (line.StartsWith(StartIfBlockToken) || line.StartsWith(StartLoopBlockToken) || line.StartsWith(StartMethodBlockToken))
-            {
-                result.Add(ParseConditionalBlock(lines));
-            }
-            else
-            {
-                result.Add(ParseLine(lines));
-            }
+            // Check if the line starts with a block command
+            // If true, parse the entire block. If false, parse just the one line
+            result.Add(LineStartsWithStartBlockCommand(line) ? ParseConditionalBlock(lines) : ParseLine(lines));
         }
         return result.ToArray();
     }
-    
+
     /// <summary>
     /// Parses a single line of code and extracts command information.
     /// </summary>
@@ -90,11 +90,12 @@ public static class Parser
         {
             string line = lines[_lineIndex];
             // Check if the block is ending
-            if (line.StartsWith(EndIfBlockToken) || line.StartsWith(EndLoopBlockToken) || line.StartsWith(EndMethodBlockToken))
+            if (LineStartsWithEndBlockCommand(line))
             {
                 ++_lineIndex;
                 break;
             }
+                
             // Check if the block has an "else" statement
             if (line.StartsWith(StartElseBlockToken))
             {
@@ -105,11 +106,11 @@ public static class Parser
             // Determine which branch the line belongs to and parse - essentially flagging.
             if (commandBranch)
             {
-                commandInfo.TrueConditionCommandInfos.Add(line.StartsWith(StartIfBlockToken) ? ParseConditionalBlock(lines) : ParseLine(lines));
+                commandInfo.TrueConditionCommandInfos.Add(LineStartsWithStartBlockCommand(line) ? ParseConditionalBlock(lines) : ParseLine(lines));
             }
             else
             {
-                commandInfo.FalseConditionCommandInfos.Add(line.StartsWith(StartIfBlockToken) ? ParseConditionalBlock(lines) : ParseLine(lines));
+                commandInfo.FalseConditionCommandInfos.Add(LineStartsWithStartBlockCommand(line) ? ParseConditionalBlock(lines) : ParseLine(lines));
             }
         }
         return commandInfo;
@@ -157,7 +158,16 @@ public static class Parser
         }
         return false;
     }
-    
+
+    // Functionality below allows for nested loops
+    // Method to determine the start of a new block
+    private static bool LineStartsWithStartBlockCommand(string line) =>
+        line.StartsWith(StartIfBlockToken) || line.StartsWith(StartLoopBlockToken) || line.StartsWith(StartMethodBlockToken);
+
+    // Method to determine the end of a new block
+    private static bool LineStartsWithEndBlockCommand(string line) =>
+        line.StartsWith(EndIfBlockToken) || line.StartsWith(EndLoopBlockToken) || line.StartsWith(EndMethodBlockToken);
+
     /// <summary>
     /// Finds and replaces variable names in the given expression with their corresponding values.
     /// </summary>

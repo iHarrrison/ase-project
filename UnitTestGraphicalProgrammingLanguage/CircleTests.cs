@@ -13,7 +13,7 @@ namespace UnitTestGraphicalProgrammingLanguage
     public class CircleTests
     {
         /// <summary>
-        /// Does the circle successfully execute as expected
+        /// Tests to see whether the circle execute method returns true when supplied with valid arguments
         /// </summary>
         [TestMethod]
         public void Circle_Execute_Pass()
@@ -33,7 +33,7 @@ namespace UnitTestGraphicalProgrammingLanguage
         }
 
         /// <summary>
-        /// Does the circle fail to execute as expected
+        /// Tests to see whether the circle execute method returns false when supplied with invalid arguments
         /// </summary>
         [TestMethod]
         public void Circle_Execute_Fail()

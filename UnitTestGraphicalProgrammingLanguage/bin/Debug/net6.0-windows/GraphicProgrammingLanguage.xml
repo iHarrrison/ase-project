@@ -38,7 +38,7 @@
         </member>
         <member name="T:GraphicProgrammingLanguage.Commands.IGPLCommand">
             <summary>
-            Represents the interface for a Graphic Programming Language (GPL) command.
+            Represents the interface to be implemented by command classes.
             </summary>
         </member>
         <member name="P:GraphicProgrammingLanguage.Commands.IGPLCommand.ExpectedArgumentsCount">
@@ -115,7 +115,7 @@
         </member>
         <member name="T:GraphicProgrammingLanguage.Commands.AssignVariable">
             <summary>
-            Represents a command to assign a value to a variable in the Graphic Programming Language.
+            Represents the functionality to assign a value to a variable.
             </summary>
         </member>
         <member name="P:GraphicProgrammingLanguage.Commands.AssignVariable.ExpectedArgumentsCount">
@@ -143,9 +143,38 @@
             <param name="drawingPosition">The current drawing position.</param>
             <returns>True if the command execution is successful; otherwise, false.</returns>
         </member>
+        <member name="T:GraphicProgrammingLanguage.Commands.CallMethod">
+            <summary>
+            Represents the functionality to call a defined method.
+            </summary>
+        </member>
+        <member name="P:GraphicProgrammingLanguage.Commands.CallMethod.ExpectedArgumentsCount">
+            <summary>
+            Gets the expected number of arguments for the CallMethod command - 1, to remove method name from args.
+            </summary>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.Commands.CallMethod.#ctor(GraphicProgrammingLanguage.Model.CommandInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GraphicProgrammingLanguage.Commands.CallMethod"/> class.
+            </summary>
+            <param name="commandInfo">The command information containing arguments.</param>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.Commands.CallMethod.Execute(System.Windows.Forms.PictureBox,DrawingPosition)">
+            <summary>
+            Executes the CallMethod command, calling the defined method and its specified arguments.
+            </summary>
+            <param name="pictureBox">The PictureBox where drawing takes place.</param>
+            <param name="drawingPosition">The current drawing position.</param>
+            <returns>True if the command execution is successful; otherwise, false.</returns>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.Commands.CallMethod.ParseMethodArguments">
+            <summary>
+            Parses the method arguments provided in the command and prepares them for method execution.
+            </summary>
+        </member>
         <member name="T:GraphicProgrammingLanguage.Commands.CanvasPen">
             <summary>
-            Handles commands for the pen color for drawing on the canvas
+            Represents the functionality to change the canvas pen colour.
             </summary>
         </member>
         <member name="P:GraphicProgrammingLanguage.Commands.CanvasPen.ExpectedArgumentsCount">
@@ -155,7 +184,7 @@
         </member>
         <member name="P:GraphicProgrammingLanguage.Commands.CanvasPen.Colour">
             <summary>
-            Gets the color value from the command arguments.
+            Gets the colour value from the command arguments.
             </summary>
         </member>
         <member name="M:GraphicProgrammingLanguage.Commands.CanvasPen.#ctor(GraphicProgrammingLanguage.Model.CommandInfo)">
@@ -166,7 +195,7 @@
         </member>
         <member name="M:GraphicProgrammingLanguage.Commands.CanvasPen.Execute(System.Windows.Forms.PictureBox,DrawingPosition)">
             <summary>
-            Executes the CanvasPen command, setting the pen color for drawing on the canvas.
+            Executes the CanvasPen command, setting the pen colour for drawing on the canvas.
             </summary>
             <param name="pictureBox">The PictureBox where drawing takes place.</param>
             <param name="drawingPosition">The current drawing position.</param>
@@ -174,7 +203,7 @@
         </member>
         <member name="T:GraphicProgrammingLanguage.Commands.Circle">
             <summary>
-            Enables the ability to draw circles on the canvas
+            Represents the functionality to draw a circle.
             </summary>
         </member>
         <member name="P:GraphicProgrammingLanguage.Commands.Circle.ExpectedArgumentsCount">
@@ -203,7 +232,7 @@
         </member>
         <member name="T:GraphicProgrammingLanguage.Commands.Clear">
             <summary>
-            Enables the functionality to clear the canvas of any drawings
+            Represents the functionality to clear the canvas of any drawings.
             </summary>
         </member>
         <member name="P:GraphicProgrammingLanguage.Commands.Clear.ExpectedArgumentsCount">
@@ -225,9 +254,45 @@
             <param name="drawingPosition">The current drawing position (unused for Clear).</param>
             <returns>True if the command execution is successful; otherwise, false.</returns>
         </member>
+        <member name="T:GraphicProgrammingLanguage.Commands.DefineMethod">
+            <summary>
+            Represents the functionality to define a method.
+            </summary>
+        </member>
+        <member name="P:GraphicProgrammingLanguage.Commands.DefineMethod.ExpectedArgumentsCount">
+            <summary>
+            Gets the expected number of arguments for the DefineMethod command.
+            </summary>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.Commands.DefineMethod.#ctor(GraphicProgrammingLanguage.Model.CommandInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GraphicProgrammingLanguage.Commands.DefineMethod"/> class.
+            </summary>
+            <param name="commandInfo">The command information containing arguments.</param>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.Commands.DefineMethod.GetMethodNameFromDeclaration(System.String)">
+            <summary>
+            Gets the method name from the method declaration.
+            </summary>
+            <param name="methodDeclaration">The method declaration string.</param>
+            <returns>The method name.</returns>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.Commands.DefineMethod.GetMethodParametersFromDeclaration(System.String)">
+            <summary>
+            Gets the method parameters from the method declaration.
+            </summary>
+            <param name="methodDeclaration">The method declaration string.</param>
+            <returns>The list of method parameters.</returns>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.Commands.DefineMethod.IsValid">
+            <summary>
+            Checks if the DefineMethod command is valid.
+            </summary>
+            <returns>True if the DefineMethod command is valid; otherwise, false.</returns>
+        </member>
         <member name="T:GraphicProgrammingLanguage.Commands.Drawto">
             <summary>
-            Enables the ability to draw lines from one place to another on the canvas
+            Represents the functionality to draw lines from one place to another on the canvas
             </summary>
         </member>
         <member name="P:GraphicProgrammingLanguage.Commands.Drawto.ExpectedArgumentsCount">
@@ -261,7 +326,7 @@
         </member>
         <member name="T:GraphicProgrammingLanguage.Commands.Fill">
             <summary>
-            Enables the ability to toggle filling when drawing shapes on the canvas.
+            Represents the functionality to toggle filling when drawing shapes on the canvas.
             </summary>
             
         </member>
@@ -291,7 +356,7 @@
         </member>
         <member name="T:GraphicProgrammingLanguage.Commands.IfCondition">
             <summary>
-            Represents and enables a conditional command that executes different sets of commands based on a specified condition.
+            Represents the functionality to write a conditional command that executes different sets of commands based on a specified condition.
             </summary>
         </member>
         <member name="P:GraphicProgrammingLanguage.Commands.IfCondition.ExpectedArgumentsCount">
@@ -326,7 +391,7 @@
         </member>
         <member name="T:GraphicProgrammingLanguage.Commands.Loop">
             <summary>
-            Represents a conditional loop command.
+            Represents and enables the functionality of a loop command.
             </summary>
         </member>
         <member name="P:GraphicProgrammingLanguage.Commands.Loop.ExpectedArgumentsCount">
@@ -355,7 +420,7 @@
         </member>
         <member name="T:GraphicProgrammingLanguage.Commands.Moveto">
             <summary>
-            Enables the ability to move to a different drawing position on the canvas
+            Represents the functionality to move to a different drawing position on the canvas
             </summary>
         </member>
         <member name="F:GraphicProgrammingLanguage.Commands.Moveto.MarkerSize">
@@ -394,7 +459,7 @@
         </member>
         <member name="T:GraphicProgrammingLanguage.Commands.ReassignVariable">
             <summary>
-            Represents a command to reassign a value to a variable in the Graphic Programming Language (GPL) application.
+            Represents the functionality to reassign a value to a variable.
             </summary>
         </member>
         <member name="P:GraphicProgrammingLanguage.Commands.ReassignVariable.ExpectedArgumentsCount">
@@ -424,7 +489,7 @@
         </member>
         <member name="T:GraphicProgrammingLanguage.Commands.Rectangle">
             <summary>
-            Enables the ability to draw rectangles on the canvas
+            Represents the functionality to draw rectangles on the canvas
             </summary>
         </member>
         <member name="P:GraphicProgrammingLanguage.Commands.Rectangle.ExpectedArgumentsCount">
@@ -458,7 +523,7 @@
         </member>
         <member name="T:GraphicProgrammingLanguage.Commands.Reset">
             <summary>
-            Enables the ability to reset the drawing position
+            Represents the functionality to reset the drawing position
             </summary>
         </member>
         <member name="P:GraphicProgrammingLanguage.Commands.Reset.ExpectedArgumentsCount">
@@ -482,7 +547,7 @@
         </member>
         <member name="T:GraphicProgrammingLanguage.Commands.Triangle">
             <summary>
-            Enables the ability to draw triangles on the canvas
+            Represents the functionality to draw triangles on the canvas
             </summary>
         </member>
         <member name="P:GraphicProgrammingLanguage.Commands.Triangle.ExpectedArgumentsCount">
@@ -517,6 +582,13 @@
         <member name="M:GraphicProgrammingLanguage.Factory.CommandFactory.CreateCommandList(GraphicProgrammingLanguage.Model.CommandInfo[])">
             <summary>
             Creates a list of commands based on an array of command information.
+            </summary>
+            <param name="commandInfos">Array of command information.</param>
+            <returns>An array of instantiated GPL commands.</returns>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.Factory.CommandFactory.TryInstantiateCommand(GraphicProgrammingLanguage.Model.CommandInfo,GraphicProgrammingLanguage.Commands.IGPLCommand@)">
+            <summary>
+            Attempts to instantiate commands.
             </summary>
             <param name="commandInfos">Array of command information.</param>
             <returns>An array of instantiated GPL commands.</returns>
@@ -564,12 +636,23 @@
         </member>
         <member name="T:GraphicProgrammingLanguage.Model.GlobalDataList">
             <summary>
-            Represents a global data list containing variables used throughout Graphic Programming Language.
+            Represents a global data list for the solution, storing variables and methods.
             </summary>
         </member>
         <member name="P:GraphicProgrammingLanguage.Model.GlobalDataList.Instance">
             <summary>
-            Gets the singleton instance of the <see cref="T:GraphicProgrammingLanguage.Model.GlobalDataList"/>.
+            Gets the singleton instance of the <see cref="T:GraphicProgrammingLanguage.Model.GlobalDataList"/>. Enforces only once Global Data List
+            instance is active at any given time
+            </summary>
+        </member>
+        <member name="P:GraphicProgrammingLanguage.Model.GlobalDataList.Variables">
+            <summary>
+            Gets the collection of variables stored in the GlobalDataList.
+            </summary>
+        </member>
+        <member name="P:GraphicProgrammingLanguage.Model.GlobalDataList.Methods">
+            <summary>
+            Gets the collection of defined methods stored in the GlobalDataList.
             </summary>
         </member>
         <member name="M:GraphicProgrammingLanguage.Model.GlobalDataList.#cctor">
@@ -582,10 +665,67 @@
             Private constructor to enforce the singleton pattern.
             </summary>
         </member>
+        <member name="T:GraphicProgrammingLanguage.Parser">
+            <summary>
+            Enables the parsing functionality via multiple methods.
+            </summary>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.Parser.Parse(System.String)">
+            <summary>
+            Parses the input string to extract command information and figure out what to do with it.
+            </summary>
+            <param name="input">The input string containing commands.</param>
+            <returns>An array of CommandInfo representing parsed commands.</returns>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.Parser.ParseLine(System.Collections.Generic.IReadOnlyList{System.String})">
+            <summary>
+            Parses a single line of code and extracts command information.
+            </summary>
+            <param name="lines">The list of lines in the input string.</param>
+            <returns>A CommandInfo representing the parsed command.</returns>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.Parser.ParseConditionalBlock(System.Collections.Generic.IReadOnlyList{System.String})">
+            <summary>
+            Parses a conditional block of code and extracts command information.
+            </summary>
+            <param name="lines">The list of lines in the input string.</param>
+            <returns>A CommandInfo representing the parsed command of the conditional block.</returns>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.Parser.TryParseComputedExpression(System.String,System.Int32@)">
+            <summary>
+            Tries to parse a computed expression and any of their operations.
+            </summary>
+            <param name="expression">The expression to parse.</param>
+            <param name="result">The parsed result if successful, or a -1.</param>
+            <returns>True if parsing is successful. Anything else and it is false..</returns>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.Parser.FindReplaceVariableNames(System.String)">
+            <summary>
+            Finds and replaces variable names in the given expression with their corresponding values.
+            </summary>
+            <param name="valueTokens">The expression containing variable names.</param>
+            <returns>The expression with variable names replaced by their values.</returns>
+        </member>
         <member name="M:GraphicProgrammingLanguage.Program.Main">
             <summary>
              The main entry point for the application.
             </summary>
+        </member>
+        <member name="T:GraphicProgrammingLanguage.Utility.DescendingKeyLengthComparer">
+            <summary>
+            Compares strings and sorts them in descending order based on their length.
+            </summary>
+        </member>
+        <member name="M:GraphicProgrammingLanguage.Utility.DescendingKeyLengthComparer.Compare(System.String,System.String)">
+            <summary>
+            Compares two strings in descending order based on their length.
+            </summary>
+            <param name="x">The first string to compare.</param>
+            <param name="y">The second string to compare.</param>
+            <returns>
+            A negative value if x is greater, a positive value if y is greater,
+            and zero if the lengths are equal (compares lexicographically in descending order in case of equal lengths).
+            </returns>
         </member>
         <member name="T:GraphicProgrammingLanguage.ApplicationConfiguration">
             <summary>
